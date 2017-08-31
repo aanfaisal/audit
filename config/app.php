@@ -176,6 +176,8 @@ return [
 		// App\Providers\BroadcastServiceProvider::class,
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
+		Maatwebsite\Excel\ExcelServiceProvider::class,
+		Barryvdh\DomPDF\ServiceProvider::class,
 
 	],
 
@@ -225,6 +227,8 @@ return [
 		'URL' => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View' => Illuminate\Support\Facades\View::class,
+		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+		'PDF' => Barryvdh\DomPDF\Facade::class,
 
 	],
 
