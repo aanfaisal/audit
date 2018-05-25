@@ -10,4 +10,4 @@
 <script src="{{ asset('plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 @yield('jspage')
 <!-- Custom Theme Scripts -->
-<script src="{{ asset('plugins/js/custom.min.js') }}"></script>
+<script src="{{ asset('js/custom.min.js') }}"></script>
