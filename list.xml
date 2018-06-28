@@ -1,0 +1,1 @@
+php artisan crud:generate Jenis --fields="nama#string" --pk="jenis_id" --form-helper='laravelcollective' --controller-namespace=Manage --route-group=manage 

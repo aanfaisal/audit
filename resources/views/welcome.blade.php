@@ -8,9 +8,16 @@
     <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
             <h1>{{ config('app.name', 'Laravel') }}</h1>
-            <p class="major">A (modular, highly tweakable) responsive one-page template designed by.</p>
+            <p class="major">Sistem Audit Energi Listrik Gedung</p>
             <ul class="actions vertical">
-                <li><a href="{{ url('login') }}" class="button big wide smooth-scroll-middle">Login</a></li>
+                @if (Route::has('login'))
+                    @auth
+                        <li><a href="{{ url('home') }}" class="button big wide smooth-scroll-middle">Dashboard</a></li>
+                    @else
+                       <li><a href="{{ url('login') }}" class="button big wide smooth-scroll-middle">Login</a></li>
+                    @endauth
+                @endif
+                
             </ul>
         </div>
         <div class="image">
