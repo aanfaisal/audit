@@ -27,10 +27,11 @@
                   @if (Auth::check())
                   <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Dashboard</a></li>
                   
-                  <li><a href="{{ url('/') }}"><i class="fa fa-lamp"></i> Data Beban Penerangan</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-laptop"></i> Data Beban Beban Lain</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-laptop"></i> Data Beban Mesin</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-laptop"></i> Data IKE</a></li>
+                  <li><a href="{{ url('/') }}"><i class="fa fa-bolt"></i> Data Penerangan</a></li>
+                  <li><a href="{{ url('/') }}"><i class="fa fa-list"></i> Data Lain</a></li>
+                  <li><a href="{{ url('/') }}"><i class="fa fa-list"></i> Data Lain</a></li>
+                  <li><a href="{{ url('/') }}"><i class="fa fa-laptop"></i> Data Mesin</a></li>
+                  <li><a href="{{ url('/') }}"><i class="fa fa-check"></i> Data IKE</a></li>
                   
                   <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
