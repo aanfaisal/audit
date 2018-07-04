@@ -2,7 +2,7 @@
 
 return [
 
-    'custom_template' => false,
+    'custom_template' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ return [
     |
      */
 
-    'path' => base_path('resources/crud-generator/'),
+    'path' => base_path('resources/crud-generator2/'),
 
     /**
      * Columns number to show in view's table.

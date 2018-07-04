@@ -1,32 +1,17 @@
-@extends('layouts.admin.main')
+@extends('layouts.app')
 
-@section('title')
-    %%crudNameCap%%
-@endsection
-
-@section('maincontent')
-    <!-- page content -->
-    <div class="right_col" role="main">
-        <div class="">
-            <div class="page-title">
-                  <div class="title_left">
-                    <h3>%%crudNameCap%%</h3>
-                  </div>
-            </div>
- 
-            <div class="clearfix"></div>
+@section('content')
+    <div class="container">
         <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>%%crudNameCap%%<small>Data</small></h2>
-                    <div class="clearfix"></div>
-                  </div>
+            @include('admin.sidebar')
 
-                  <div class="x_content">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">%%modelName%% {{ $%%crudNameSingular%%->%%primaryKey%% }}</div>
+                    <div class="card-body">
 
-                        <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['%%routeGroup%%%%crudName%%', $%%crudNameSingular%%->%%primaryKey%%],
@@ -34,7 +19,7 @@
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                     'type' => 'submit',
-                                    'class' => 'btn btn-danger btn-xs',
+                                    'class' => 'btn btn-danger btn-sm',
                                     'title' => 'Delete %%modelName%%',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
@@ -58,11 +43,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('htmlpage')
-
-@endsection
-
-@section('jspage')
-
 @endsection
