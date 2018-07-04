@@ -1,5 +1,5 @@
 # The Goal
-Will be Audit App for Building based on Laravel 5.5
+Will be Electrical Energy Audit Applications for Buildings - with Laravel 5.5
 
 # Requirements
 * [Latest PHP 7](http://php.net)
