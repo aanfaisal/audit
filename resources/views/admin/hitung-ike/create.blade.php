@@ -47,6 +47,7 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('htmlpage')
