@@ -32,7 +32,7 @@ class BebanMesinController extends Controller
             $bebanmesin = BebanMesin::latest()->paginate($perPage);
         }
 
-        return view('beban-mesin.index', compact('bebanmesin'));
+        return view('admin.beban-mesin.index', compact('bebanmesin'));
     }
 
     /**
@@ -42,7 +42,7 @@ class BebanMesinController extends Controller
      */
     public function create()
     {
-        return view('beban-mesin.create');
+        return view('admin.beban-mesin.create');
     }
 
     /**
@@ -73,7 +73,7 @@ class BebanMesinController extends Controller
     {
         $bebanmesin = BebanMesin::findOrFail($id);
 
-        return view('beban-mesin.show', compact('bebanmesin'));
+        return view('admin.beban-mesin.show', compact('bebanmesin'));
     }
 
     /**
@@ -87,7 +87,7 @@ class BebanMesinController extends Controller
     {
         $bebanmesin = BebanMesin::findOrFail($id);
 
-        return view('beban-mesin.edit', compact('bebanmesin'));
+        return view('admin.beban-mesin.edit', compact('bebanmesin'));
     }
 
     /**

@@ -33,7 +33,7 @@ class BebanLainController extends Controller
             $bebanlain = BebanLain::latest()->paginate($perPage);
         }
 
-        return view('beban-lain.index', compact('bebanlain'));
+        return view('admin.beban-lain.index', compact('bebanlain'));
     }
 
     /**
@@ -43,7 +43,7 @@ class BebanLainController extends Controller
      */
     public function create()
     {
-        return view('beban-lain.create');
+        return view('admin.beban-lain.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class BebanLainController extends Controller
     {
         $bebanlain = BebanLain::findOrFail($id);
 
-        return view('beban-lain.show', compact('bebanlain'));
+        return view('admin.beban-lain.show', compact('bebanlain'));
     }
 
     /**
@@ -88,7 +88,7 @@ class BebanLainController extends Controller
     {
         $bebanlain = BebanLain::findOrFail($id);
 
-        return view('beban-lain.edit', compact('bebanlain'));
+        return view('admin.beban-lain.edit', compact('bebanlain'));
     }
 
     /**

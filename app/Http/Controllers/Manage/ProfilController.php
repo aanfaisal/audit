@@ -38,7 +38,7 @@ class ProfilController extends Controller
             $profil = Profil::latest()->paginate($perPage);
         }
 
-        return view('profil.index', compact('profil'));
+        return view('admin.profil.index', compact('profil'));
     }
 
     /**
@@ -48,7 +48,7 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        return view('profil.create');
+        return view('admin.profil.create');
     }
 
     /**
@@ -79,7 +79,7 @@ class ProfilController extends Controller
     {
         $profil = Profil::findOrFail($id);
 
-        return view('profil.show', compact('profil'));
+        return view('admin.profil.show', compact('profil'));
     }
 
     /**
@@ -93,7 +93,7 @@ class ProfilController extends Controller
     {
         $profil = Profil::findOrFail($id);
 
-        return view('profil.edit', compact('profil'));
+        return view('admin.profil.edit', compact('profil'));
     }
 
     /**

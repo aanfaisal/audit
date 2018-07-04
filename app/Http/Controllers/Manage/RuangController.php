@@ -33,7 +33,7 @@ class RuangController extends Controller
             $ruang = Ruang::latest()->paginate($perPage);
         }
 
-        return view('ruang.index', compact('ruang'));
+        return view('admin.ruang.index', compact('ruang'));
     }
 
     /**
@@ -43,7 +43,7 @@ class RuangController extends Controller
      */
     public function create()
     {
-        return view('ruang.create');
+        return view('admin.ruang.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class RuangController extends Controller
     {
         $ruang = Ruang::findOrFail($id);
 
-        return view('ruang.show', compact('ruang'));
+        return view('admin.ruang.show', compact('ruang'));
     }
 
     /**
@@ -88,7 +88,7 @@ class RuangController extends Controller
     {
         $ruang = Ruang::findOrFail($id);
 
-        return view('ruang.edit', compact('ruang'));
+        return view('admin.ruang.edit', compact('ruang'));
     }
 
     /**

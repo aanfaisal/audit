@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HitungIKE extends Model
+class HitungIke extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hitung_i_k_es';
+    protected $table = 'hitung_ikes';
 
     /**
     * The database primary key value.

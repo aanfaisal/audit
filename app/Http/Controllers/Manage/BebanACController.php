@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\BebanAC;
+use App\BebanAc;
 use Illuminate\Http\Request;
 
-class BebanACController extends Controller
+class BebanAcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class BebanACController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $bebanac = BebanAC::where('nm_ruang', 'LIKE', "%$keyword%")
+            $bebanac = BebanAc::where('nm_ruang', 'LIKE', "%$keyword%")
                 ->orWhere('jml_ac', 'LIKE', "%$keyword%")
                 ->orWhere('daya_ac', 'LIKE', "%$keyword%")
                 ->orWhere('tot_pemakaian', 'LIKE', "%$keyword%")
@@ -29,10 +29,10 @@ class BebanACController extends Controller
                 ->orWhere('tot_dayaac', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $bebanac = BebanAC::latest()->paginate($perPage);
+            $bebanac = BebanAc::latest()->paginate($perPage);
         }
 
-        return view('beban-a-c.index', compact('bebanac'));
+        return view('admin.beban-ac.index', compact('bebanac'));
     }
 
     /**
@@ -42,7 +42,7 @@ class BebanACController extends Controller
      */
     public function create()
     {
-        return view('beban-a-c.create');
+        return view('admin.beban-ac.create');
     }
 
     /**
@@ -57,9 +57,9 @@ class BebanACController extends Controller
         
         $requestData = $request->all();
         
-        BebanAC::create($requestData);
+        BebanAc::create($requestData);
 
-        return redirect('manage/beban-a-c')->with('flash_message', 'BebanAC added!');
+        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc added!');
     }
 
     /**
@@ -71,9 +71,9 @@ class BebanACController extends Controller
      */
     public function show($id)
     {
-        $bebanac = BebanAC::findOrFail($id);
+        $bebanac = BebanAc::findOrFail($id);
 
-        return view('beban-a-c.show', compact('bebanac'));
+        return view('admin.beban-ac.show', compact('bebanac'));
     }
 
     /**
@@ -85,9 +85,9 @@ class BebanACController extends Controller
      */
     public function edit($id)
     {
-        $bebanac = BebanAC::findOrFail($id);
+        $bebanac = BebanAc::findOrFail($id);
 
-        return view('beban-a-c.edit', compact('bebanac'));
+        return view('admin.beban-ac.edit', compact('bebanac'));
     }
 
     /**
@@ -103,10 +103,10 @@ class BebanACController extends Controller
         
         $requestData = $request->all();
         
-        $bebanac = BebanAC::findOrFail($id);
+        $bebanac = BebanAc::findOrFail($id);
         $bebanac->update($requestData);
 
-        return redirect('manage/beban-a-c')->with('flash_message', 'BebanAC updated!');
+        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc updated!');
     }
 
     /**
@@ -118,8 +118,8 @@ class BebanACController extends Controller
      */
     public function destroy($id)
     {
-        BebanAC::destroy($id);
+        BebanAc::destroy($id);
 
-        return redirect('manage/beban-a-c')->with('flash_message', 'BebanAC deleted!');
+        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc deleted!');
     }
 }

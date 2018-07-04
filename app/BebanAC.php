@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BebanAC extends Model
+class BebanAc extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'beban_a_cs';
+    protected $table = 'beban_acs';
 
     /**
     * The database primary key value.

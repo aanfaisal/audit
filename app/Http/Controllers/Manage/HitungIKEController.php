@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\HitungIKE;
+use App\HitungIke;
 use Illuminate\Http\Request;
 
-class HitungIKEController extends Controller
+class HitungIkeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,14 @@ class HitungIKEController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $hitungike = HitungIKE::where('wktu_pengukuran', 'LIKE', "%$keyword%")
+            $hitungike = HitungIke::where('wktu_pengukuran', 'LIKE', "%$keyword%")
                 ->orWhere('hsil_perhitungan', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $hitungike = HitungIKE::latest()->paginate($perPage);
+            $hitungike = HitungIke::latest()->paginate($perPage);
         }
 
-        return view('hitung-i-k-e.index', compact('hitungike'));
+        return view('admin.hitung-ike.index', compact('hitungike'));
     }
 
     /**
@@ -38,7 +38,7 @@ class HitungIKEController extends Controller
      */
     public function create()
     {
-        return view('hitung-i-k-e.create');
+        return view('admin.hitung-ike.create');
     }
 
     /**
@@ -53,9 +53,9 @@ class HitungIKEController extends Controller
         
         $requestData = $request->all();
         
-        HitungIKE::create($requestData);
+        HitungIke::create($requestData);
 
-        return redirect('manage/hitung-i-k-e')->with('flash_message', 'HitungIKE added!');
+        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke added!');
     }
 
     /**
@@ -67,9 +67,9 @@ class HitungIKEController extends Controller
      */
     public function show($id)
     {
-        $hitungike = HitungIKE::findOrFail($id);
+        $hitungike = HitungIke::findOrFail($id);
 
-        return view('hitung-i-k-e.show', compact('hitungike'));
+        return view('admin.hitung-ike.show', compact('hitungike'));
     }
 
     /**
@@ -81,9 +81,9 @@ class HitungIKEController extends Controller
      */
     public function edit($id)
     {
-        $hitungike = HitungIKE::findOrFail($id);
+        $hitungike = HitungIke::findOrFail($id);
 
-        return view('hitung-i-k-e.edit', compact('hitungike'));
+        return view('admin.hitung-ike.edit', compact('hitungike'));
     }
 
     /**
@@ -99,10 +99,10 @@ class HitungIKEController extends Controller
         
         $requestData = $request->all();
         
-        $hitungike = HitungIKE::findOrFail($id);
+        $hitungike = HitungIke::findOrFail($id);
         $hitungike->update($requestData);
 
-        return redirect('manage/hitung-i-k-e')->with('flash_message', 'HitungIKE updated!');
+        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke updated!');
     }
 
     /**
@@ -114,8 +114,8 @@ class HitungIKEController extends Controller
      */
     public function destroy($id)
     {
-        HitungIKE::destroy($id);
+        HitungIke::destroy($id);
 
-        return redirect('manage/hitung-i-k-e')->with('flash_message', 'HitungIKE deleted!');
+        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke deleted!');
     }
 }

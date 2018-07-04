@@ -27,16 +27,16 @@
                   @if (Auth::check())
                   <li><a href="{{ url('home') }}"><i class="fa fa-home"></i>Dashboard</a></li>
                   
-                  <li><a href="{{ url('/') }}"><i class="fa fa-bolt"></i> Data Penerangan</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-suitcase"></i> Data AC</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-archive"></i> Data Lain</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-subway"></i> Data Mesin</a></li>
-                  <li><a href="{{ url('/') }}"><i class="fa fa-check"></i> Data IKE</a></li>
+                  <li><a href="{{ url('manage/beban-penerangan') }}"><i class="fa fa-bolt"></i> Data Penerangan</a></li>
+                  <li><a href="{{ url('manage/beban-ac') }}"><i class="fa fa-suitcase"></i> Data AC</a></li>
+                  <li><a href="{{ url('manage/beban-lain') }}"><i class="fa fa-archive"></i> Data Lain</a></li>
+                  <li><a href="{{ url('manage/beban-mesin') }}"><i class="fa fa-subway"></i> Data Mesin</a></li>
+                  <li><a href="{{ url('manage/hitung-ike') }}"><i class="fa fa-check"></i> Data IKE</a></li>
                   <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="{{ url('/') }}">Profil Gedung</a></li>
-                        <li><a href="{{ url('/') }}">Data Ruang</a></li>
-                        <li><a href="{{ url('/') }}">User Managemen</a></li>
+                        <li><a href="{{ url('manage/profil') }}">Profil Gedung</a></li>
+                        <li><a href="{{ url('manage/ruang') }}">Data Ruang</a></li>
+                        <li><a href="{{ url('manage/setting') }}">User Managemen</a></li>
                     </ul>
                   </li> 
                 </ul>

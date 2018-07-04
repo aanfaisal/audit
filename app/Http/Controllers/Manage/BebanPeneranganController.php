@@ -33,7 +33,7 @@ class BebanPeneranganController extends Controller
             $bebanpenerangan = BebanPenerangan::latest()->paginate($perPage);
         }
 
-        return view('beban-penerangan.index', compact('bebanpenerangan'));
+        return view('admin.beban-penerangan.index', compact('bebanpenerangan'));
     }
 
     /**
@@ -43,7 +43,7 @@ class BebanPeneranganController extends Controller
      */
     public function create()
     {
-        return view('beban-penerangan.create');
+        return view('admin.beban-penerangan.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class BebanPeneranganController extends Controller
     {
         $bebanpenerangan = BebanPenerangan::findOrFail($id);
 
-        return view('beban-penerangan.show', compact('bebanpenerangan'));
+        return view('admin.beban-penerangan.show', compact('bebanpenerangan'));
     }
 
     /**
@@ -88,7 +88,7 @@ class BebanPeneranganController extends Controller
     {
         $bebanpenerangan = BebanPenerangan::findOrFail($id);
 
-        return view('beban-penerangan.edit', compact('bebanpenerangan'));
+        return view('admin.beban-penerangan.edit', compact('bebanpenerangan'));
     }
 
     /**
