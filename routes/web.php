@@ -28,6 +28,5 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::resource('manage/beban-mesin', 'Manage\\BebanMesinController');
     Route::resource('manage/beban-ac', 'Manage\\BebanAcController');
     Route::resource('manage/beban-lain', 'Manage\\BebanLainController');
-    
+    Route::resource('manage/user', 'Manage\\UsersController');
 });
-

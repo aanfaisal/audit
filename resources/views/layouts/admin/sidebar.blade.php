@@ -36,7 +36,7 @@
                     <ul class="nav child_menu">
                         <li><a href="{{ url('manage/profil') }}">Profil Gedung</a></li>
                         <li><a href="{{ url('manage/ruang') }}">Data Ruang</a></li>
-                        <li><a href="{{ url('manage/setting') }}">User Managemen</a></li>
+                        <li><a href="{{ url('manage/user') }}">User Managemen</a></li>
                     </ul>
                   </li> 
                 </ul>

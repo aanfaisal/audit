@@ -1,16 +1,12 @@
 @extends('layouts.admin.main')
 
-@section('title')
-    Data Beban AC (Air Conditioner)
-@endsection
-
 @section('maincontent')
     <!-- page content -->
     <div class="right_col" role="main">
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Beban AC (Air Conditioner)</h3>
+                    <h3>Use</h3>
                   </div>
             </div>
 
@@ -19,17 +15,17 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Data</small>Beban AC</h2>
+                    <h2>User<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
             @include('layouts._flash')
-                        <a href="{{ url('/manage/beban-ac/create') }}" class="btn btn-success btn-sm" title="Add New BebanAc">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
+                        <a href="{{ url('manage/user/create') }}" class="btn btn-success btn-sm" title="Add New Use">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
-                        {!! Form::open(['method' => 'GET', 'url' => '/manage/beban-ac', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
+                        {!! Form::open(['method' => 'GET', 'url' => 'manage/user', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
                         <div class="title_right">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search...">
@@ -48,27 +44,27 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nama Ruang</th><th>Jumla AC</th><th>Daya AC</th><th>Aksi</th>
+                                        <th>ID</th><th>Name</th><th>Email</th><th>Password</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                @foreach($bebanac as $item)
+                                @foreach($use as $item)
                                     <tr>
-                                        <td>{{  }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jml_ac }}</td><td>{{ $item->daya_ac }}</td>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->email }}</td><td>{{ $item->password }}</td>
                                         <td>
-                                            <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id . '/edit') }}" title="Edit BebanAc"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('manage/user/' . $item->id) }}" title="View Use"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('manage/user/' . $item->id . '/edit') }}" title="Edit Use"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
-                                                'url' => ['/manage/beban-ac', $item->bebanac_id],
+                                                'url' => ['manage/user', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete BebanAc',
+                                                        'title' => 'Delete Use',
                                                         'onclick'=>'return confirm("Confirm delete?")'
                                                 )) !!}
                                             {!! Form::close() !!}
@@ -77,7 +73,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $bebanac->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $use->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
                     </div>
@@ -87,12 +83,4 @@
     </div>
 </div>
 <!-- /page content -->
-@endsection
-
-@section('htmlpage')
-
-@endsection
-
-@section('jspage')
-
 @endsection

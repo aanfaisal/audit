@@ -1,16 +1,12 @@
 @extends('layouts.admin.main')
 
-@section('title')
-    Lihat #{{ $bebanac->bebanac_id }} Beban AC (Air Conditioner)
-@endsection
-
 @section('maincontent')
     <!-- page content -->
     <div class="right_col" role="main">
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Beban AC (Air Conditioner)</h3>
+                    <h3>User</h3>
                   </div>
             </div>
 
@@ -19,23 +15,23 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Data</small>Beban AC</h2>
+                    <h2>User<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
 
-                        <a href="{{ url('/manage/beban-ac') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
-                        <a href="{{ url('/manage/beban-ac/' . $bebanac->bebanac_id . '/edit') }}" title="Edit BebanAc"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('manage/user') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('manage/user/' . $use->id . '/edit') }}" title="Edit Use"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['manage/bebanac', $bebanac->bebanac_id],
+                            'url' => ['use', $use->id],
                             'style' => 'display:inline'
                         ]) !!}
                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
-                                    'title' => 'Delete BebanAc',
+                                    'title' => 'Delete Use',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
                         {!! Form::close() !!}
@@ -46,9 +42,9 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $bebanac->bebanac_id }}</td>
+                                        <th>ID</th><td>{{ $use->id }}</td>
                                     </tr>
-                                    <tr><th> Nama Ruang </th><td> {{ $bebanac->nm_ruang }} </td></tr><tr><th> Jumlah AC </th><td> {{ $bebanac->jml_ac }} </td></tr><tr><th> Daya AC </th><td> {{ $bebanac->daya_ac }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $use->name }} </td></tr><tr><th> Email </th><td> {{ $use->email }} </td></tr><tr><th> Password </th><td> {{ $use->password }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -58,12 +54,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
-@section('htmlpage')
-
-@endsection
-
-@section('jspage')
-
 @endsection
