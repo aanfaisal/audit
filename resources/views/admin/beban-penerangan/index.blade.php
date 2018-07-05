@@ -48,14 +48,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Jns Lamp</th><th>Jml Lamp</th><th>Actions</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Jenis Lamp</th><th>Jumlah Lamp</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanpenerangan as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_lamp }}</td><td>{{ $item->jml_lamp }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-penerangan/' . $item->beban_id) }}" title="View BebanPenerangan"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

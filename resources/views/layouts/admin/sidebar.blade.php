@@ -34,7 +34,7 @@
                   <li><a href="{{ url('manage/hitung-ike') }}"><i class="fa fa-check"></i> Data IKE</a></li>
                   <li><a><i class="fa fa-gears"></i> Setting <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="{{ url('manage/profil') }}">Profil Gedung</a></li>
+                        <li><a href="{{ url('manage/profil/create') }}">Profil Gedung</a></li>
                         <li><a href="{{ url('manage/ruang') }}">Data Ruang</a></li>
                         <li><a href="{{ url('manage/user') }}">User Managemen</a></li>
                     </ul>

@@ -19,7 +19,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Data</small>Beban AC</h2>
+                    <h2>Data Beban AC</h2>
                     <div class="clearfix"></div>
                   </div>
 
@@ -48,14 +48,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nama Ruang</th><th>Jumla AC</th><th>Daya AC</th><th>Aksi</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Jumlah AC</th><th>Daya AC</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanac as $item)
                                     <tr>
-                                        <td>{{  }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nm_ruang }}</td><td>{{ $item->jml_ac }}</td><td>{{ $item->daya_ac }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

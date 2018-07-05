@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Ruang
+    Data Ruang Gedung
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Ruang</h3>
+                    <h3>Data Ruang</h3>
                   </div>
             </div>
  
@@ -26,7 +26,7 @@
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/ruang/create') }}" class="btn btn-success btn-sm" title="Add New Ruang">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/ruang', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Tot Dayapenerangan</th><th>Actions</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Luas Ruang</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($ruang as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td><td>{{ $item->tot_dayapenerangan }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td>
                                         <td>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id) }}" title="View Ruang"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id . '/edit') }}" title="Edit Ruang"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
