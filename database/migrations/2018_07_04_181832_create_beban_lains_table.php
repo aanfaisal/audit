@@ -14,7 +14,6 @@ class CreateBebanLainsTable extends Migration
     {
         Schema::create('beban_lains', function (Blueprint $table) {
             $table->increments('bebanlain_id');
-            $table->timestamps();
             $table->string('nm_ruang')->nullable();
             $table->string('jns_beban')->nullable();
             $table->string('jml_beban')->nullable();
@@ -22,7 +21,9 @@ class CreateBebanLainsTable extends Migration
             $table->string('tot_pemakaian')->nullable();
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayalain')->nullable();
-            });
+            $table->timestamps();
+            
+        });
     }
 
     /**

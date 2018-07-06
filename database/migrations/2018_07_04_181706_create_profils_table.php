@@ -14,7 +14,6 @@ class CreateProfilsTable extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->increments('profil_id');
-            $table->timestamps();
             $table->string('p_gedung')->nullable();
             $table->string('nama_institusi')->nullable();
             $table->string('alamat')->nullable();
@@ -27,7 +26,8 @@ class CreateProfilsTable extends Migration
             $table->string('lbr_gedung')->nullable();
             $table->string('tinggi_gedung')->nullable();
             $table->string('luas_gedung')->nullable();
-            });
+            $table->timestamps();
+        });
     }
 
     /**

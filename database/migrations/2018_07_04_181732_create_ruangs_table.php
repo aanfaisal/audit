@@ -14,7 +14,6 @@ class CreateRuangsTable extends Migration
     {
         Schema::create('ruangs', function (Blueprint $table) {
             $table->increments('ruang_id');
-            $table->timestamps();
             $table->string('nm_ruang')->nullable();
             $table->string('luas_ruang')->nullable();
             $table->string('tot_dayapenerangan')->nullable();
@@ -22,7 +21,9 @@ class CreateRuangsTable extends Migration
             $table->string('tot_dayalain')->nullable();
             $table->string('tot_dayamesin')->nullable();
             $table->string('nilai_IKE')->nullable();
-            });
+            $table->timestamps();
+
+        });
     }
 
     /**

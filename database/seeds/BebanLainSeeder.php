@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class BebanLainSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $faker = Faker\Factory::create('id_ID');
+
+        $limit = 100;
+        //$faker->randomElement(['seller', 'buyer']),
+
+        for ($i = 0; $i < $limit; $i++) {
+            DB::table('beban_lains')->insert([
+                'nm_ruang' => $faker->randomElement(['D1.01', 'D1.02', 'D1.03', 'D1.04', 'D1.05', 'D1.06', 'D2.01', 'D2.02', 'D2.03', 'D2.04', 'D2.05', 'D2.06', 'D2.07', 'D2.08', 'D2.09', 'D3.01', 'D3.02', 'D3.03', 'D3.04', 'D3.05', 'D3.06', 'D3.07', 'D3.08']),
+                'jns_beban' => $faker->randomElement(['Televisi', 'Dispenser', 'Komputer', 'Printer']),
+                'jml_beban' => $faker->randomElement(['2', '4']),
+                'daya_beban' => $faker->numberBetween($min = 24, $max = 240),
+                'tot_pemakaian' => $faker->randomElement(['1','5', '8', '10', '15', '12', '7']),
+                //'wktu_pengukuran' => $faker->dateTimeInInterval($startDate = '-30 days', $interval = '+ 1 days', $timezone = 'Asia/Jakarta')
+                'wktu_pengukuran' => $faker->dateTimeBetween('-30 days', '+2 days'), //Asia / Jakarta
+            ]);
+        }
+    }
+}

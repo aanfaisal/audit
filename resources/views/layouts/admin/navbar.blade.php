@@ -14,12 +14,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="{{ url('/profile') }}"> Profile</a></li>
-                        <li>
-                            <a href="#setting">
-                                <span>Settings</span>
-                            </a>
-                        </li>
+                       <li><a href="{{ url('manage/user/')}}{{ auth()->user()->id }}"> Profile</a></li>
                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </ul>

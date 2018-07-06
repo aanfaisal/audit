@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Bebanpenerangan
+   Lihat Data #{{ $bebanpenerangan->beban_id }} Beban Penerangan
 @endsection
 
 @section('maincontent')
@@ -10,22 +10,22 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Bebanpenerangan</h3>
+                    <h3>Lihat Data Beban Penerangan</h3>
                   </div>
             </div>
- 
+
             <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bebanpenerangan<small>Data</small></h2>
+                    <h2>Lihat Data Beban Penerangan</h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
 
-                        <a href="{{ url('/manage/beban-penerangan') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/manage/beban-penerangan') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <a href="{{ url('/manage/beban-penerangan/' . $bebanpenerangan->beban_id . '/edit') }}" title="Edit BebanPenerangan"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
