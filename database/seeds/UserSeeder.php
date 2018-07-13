@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
 
         // Membuat role member
         $memberRole = new Role();
-        $memberRole->name = "member";
-        $memberRole->display_name = "Member";
+        $memberRole->name = "auditor";
+        $memberRole->display_name = "Auditor";
         $memberRole->save();
 
         // Membuat sample admin
@@ -26,6 +26,7 @@ class UserSeeder extends Seeder
         $admin->email = 'admin@gmail.com';
         $admin->password = bcrypt('rahasia');
         $admin->status = "aktif";
+        $admin->username = "admin";
         $admin->gender = "admin";
         $admin->address = "Jalan Ngaliyan Raya No.43 Semarang";
         $admin->save();
@@ -33,10 +34,11 @@ class UserSeeder extends Seeder
 
         // Membuat sample member
         $member = new User();
-        $member->name = "Member";
-        $member->email = 'member@gmail.com';
+        $member->name = "Auditor";
+        $member->email = 'auditor@gmail.com';
         $member->password = bcrypt('rahasia');
-        $admin->gender = "member";
+        $admin->gender = "auditor";
+        $admin->username = "auditor";
         $admin->address = "Jalan Kedungpane Raya 2 No.43 Semarang";
         $member->status = "aktif";
         $member->save();
