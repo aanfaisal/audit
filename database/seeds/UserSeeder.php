@@ -26,6 +26,8 @@ class UserSeeder extends Seeder
         $admin->email = 'admin@gmail.com';
         $admin->password = bcrypt('rahasia');
         $admin->status = "aktif";
+        $admin->gender = "admin";
+        $admin->address = "Jalan Ngaliyan Raya No.43 Semarang";
         $admin->save();
         $admin->attachRole($adminRole);
 
@@ -34,6 +36,8 @@ class UserSeeder extends Seeder
         $member->name = "Member";
         $member->email = 'member@gmail.com';
         $member->password = bcrypt('rahasia');
+        $admin->gender = "member";
+        $admin->address = "Jalan Kedungpane Raya 2 No.43 Semarang";
         $member->status = "aktif";
         $member->save();
         $member->attachRole($memberRole);

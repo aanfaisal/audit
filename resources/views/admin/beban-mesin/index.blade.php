@@ -48,7 +48,8 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Nama Ruang</th><th>Nama Mesin</th><th>Daya Mesin</th><th>Aksi</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Nama Mesin</th><th>Daya Mesin</th>
+                                        <th>Total Pemakaian</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +57,7 @@
                                 @foreach($bebanmesin as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->nm_mesin }}</td><td>{{ $item->daya_mesin }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->nm_mesin }}</td><td>{{ $item->daya_mesin }}</td><td>{{ $item->tot_pemakaian }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id) }}" title="View BebanMesin"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id . '/edit') }}" title="Edit BebanMesin"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

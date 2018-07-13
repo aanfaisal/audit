@@ -40,7 +40,7 @@
                         </div>
                         <div class="x_content">
 
-                                        
+                                         {!! $charti->render() !!} 
 
                         </div>
                       </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="x_content">
 
-                                        
+                                     {!! $chart->render() !!}   
 
                         </div>
                       </div>
@@ -75,4 +75,7 @@
 </div>
 <!-- /page content -->
 
+@endsection
+@section('htmlpage')
+ {!! Charts::assets() !!}
 @endsection

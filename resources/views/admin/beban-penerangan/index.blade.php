@@ -48,7 +48,8 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Nama Ruang</th><th>Jenis Lamp</th><th>Jumlah Lamp</th><th>Aksi</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Jenis Lamp</th><th>Jumlah Lampu</th>
+                                        <th>Daya Lampu</th><th>Total Pemakaian</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +57,7 @@
                                 @foreach($bebanpenerangan as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_lamp }}</td><td>{{ $item->jml_lamp }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_lamp }}</td><td>{{ $item->jml_lamp }}</td><td>{{ $item->daya_lamp }}</td><td>{{ $item->tot_pemakaian }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-penerangan/' . $item->beban_id) }}" title="View BebanPenerangan"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/beban-penerangan/' . $item->beban_id . '/edit') }}" title="Edit BebanPenerangan"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

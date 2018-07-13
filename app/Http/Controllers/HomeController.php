@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Charts;
+use App\HitungIke;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $chart = Charts::database(HitungIke::all(), 'bar', 'highcharts')
+        ->title(' ')    
+        ->elementLabel("Hasil Perhitungan IKE")
+            ->dimensions(500, 300)
+            ->responsive(false)
+            ->dateColumn('wktu_pengukuran')
+            ->groupByMonth('2018', true);
+
+        $charti = Charts::database(HitungIke::all(), 'line', 'highcharts')
+            ->title(' ')
+            ->elementLabel("Hasil Perhitungan IKE")
+            ->dimensions(500, 300)
+            ->responsive(false)
+            ->dateColumn('wktu_pengukuran')
+            ->lastByDay();
+            //->groupByMonth('2018', true);
+
+        return view('home', ['chart' => $chart, 'charti' => $charti]);
     }
 }

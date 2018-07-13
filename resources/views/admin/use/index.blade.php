@@ -6,7 +6,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Use</h3>
+                    <h3>User</h3>
                   </div>
             </div>
 
@@ -15,14 +15,14 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>User<small>Data</small></h2>
+                    <h2>Data User</h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('manage/user/create') }}" class="btn btn-success btn-sm" title="Add New Use">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Register User Baru
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => 'manage/user', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -44,7 +44,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Email</th><th>Password</th><th>Actions</th>
+                                        <th>No</th><th>Nama</th><th>Email</th><th>Username</th><th>Alamat</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +52,7 @@
                                 @foreach($use as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->email }}</td><td>{{ $item->password }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->email }}</td><td>{{ $item->gender }}</td><td>{{ $item->address }}</td>
                                         <td>
                                             <a href="{{ url('manage/user/' . $item->id) }}" title="View Use"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('manage/user/' . $item->id . '/edit') }}" title="Edit Use"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
