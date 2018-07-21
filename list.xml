@@ -5,13 +5,18 @@ php artisan crud:generate anu --fields="nama#string" --pk="anu_id" --form-helper
 
  php artisan crud:generate Ruang --fields="nm_ruang#string; luas_ruang#string; tot_dayapenerangan#string; tot_dayaac#string; tot_dayalain#string; tot_dayamesin#string; nilai_IKE#string" --pk="ruang_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 
- php artisan crud:generate BebanPenerangan --fields="nm_ruang#string; jns_lamp#string; jml_lamp#string; daya_lamp#string; tot_pemakaian#string; wktu_pengukuran#datetime; tot_dayapen#string" --pk="beban_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 
  php artisan crud:generate HitungIke --fields="wktu_pengukuran#datetime; hsil_perhitungan#string" --pk="ike_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
-
+ 
+ php artisan crud:generate BebanPenerangan --fields="nm_ruang#string; jns_lamp#string; jml_lamp#string; daya_lamp#string; tot_pemakaian#string; wktu_pengukuran#datetime; tot_dayapen#string" --pk="beban_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 
  php artisan crud:generate BebanMesin --fields="nm_ruang#string; nm_mesin#string; daya_mesin#string; tot_pemakaian#string; wktu_pengukuran#datetime; tot_dayamesin#string" --pk="bebanmesin_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 
  php artisan crud:generate BebanAc --fields="nm_ruang#string; jml_ac#string; daya_ac#string; tot_pemakaian#string; wktu_pengukuran#datetime; tot_dayaac#string" --pk="bebanac_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 
  php artisan crud:generate BebanLain --fields="nm_ruang#string; jns_beban#string; jml_beban#string; daya_beban#string; tot_pemakaian#string; wktu_pengukuran#datetime; tot_dayalain#string" --pk="bebanlain_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
+
+//its new generate
+
+ php artisan crud:generate Ruang --fields="nm_ruang#string; luas_ruang#string; jns_lamp#string; jml_lamp#string; daya_lamp#string; nmbebanac#string; jml_ac#string; daya_ac#string; jnsbebanlain#string; jmlbebanlain#string; dyabebanlain#string; nilai_IKE#string" --pk="ruang_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
+
