@@ -22,6 +22,7 @@ class CreateBebanPenerangansTable extends Migration
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayapen')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             });
     }
 

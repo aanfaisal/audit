@@ -21,6 +21,7 @@ class CreateBebanAcsTable extends Migration
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayaac')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             
             });
     }

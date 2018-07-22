@@ -21,6 +21,7 @@ class CreateBebanMesinsTable extends Migration
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayamesin')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             
             });
     }

@@ -22,6 +22,7 @@ class CreateBebanLainsTable extends Migration
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayalain')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             });
     }

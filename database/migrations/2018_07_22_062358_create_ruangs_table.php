@@ -27,6 +27,7 @@ class CreateRuangsTable extends Migration
             $table->string('dyabebanlain')->nullable();
             $table->string('nilai_IKE')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             });
     }
