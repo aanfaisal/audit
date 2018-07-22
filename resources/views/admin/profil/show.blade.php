@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $profil->profil_id }}</td>
                                     </tr>
-                                    <tr><th> P Gedung </th><td> {{ $profil->p_gedung }} </td></tr><tr><th> Nama Institusi </th><td> {{ $profil->nama_institusi }} </td></tr><tr><th> Alamat </th><td> {{ $profil->alamat }} </td></tr>
+                                    <tr><th> P Gedung </th><td> {{ $profil->p_gedung }} </td></tr><tr><th> Nama Institusi </th><td> {{ $profil->nama_institusi }} </td></tr><tr><th> Alamat </th><td> {{ $profil->alamat }} </td></tr><tr><th> Jml Gedung </th><td> {{ $profil->jml_gedung }} </td></tr><tr><th> Jml Lantai </th><td> {{ $profil->jml_lantai }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

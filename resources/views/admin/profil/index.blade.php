@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>P Gedung</th><th>Nama Institusi</th><th>Alamat</th><th>Actions</th>
+                                        <th>ID</th><th>P Gedung</th><th>Nama Institusi</th><th>Alamat</th><th>Jml Gedung</th><th>Jml Lantai</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($profil as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->p_gedung }}</td><td>{{ $item->nama_institusi }}</td><td>{{ $item->alamat }}</td>
+                                        <td>{{ $item->p_gedung }}</td><td>{{ $item->nama_institusi }}</td><td>{{ $item->alamat }}</td><td>{{ $item->jml_gedung }}</td><td>{{ $item->jml_lantai }}</td>
                                         <td>
                                             <a href="{{ url('/manage/profil/' . $item->profil_id) }}" title="View Profil"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/profil/' . $item->profil_id . '/edit') }}" title="Edit Profil"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $bebanmesin->bebanmesin_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $bebanmesin->nm_ruang }} </td></tr><tr><th> Nm Mesin </th><td> {{ $bebanmesin->nm_mesin }} </td></tr><tr><th> Daya Mesin </th><td> {{ $bebanmesin->daya_mesin }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $bebanmesin->nm_ruang }} </td></tr><tr><th> Nm Mesin </th><td> {{ $bebanmesin->nm_mesin }} </td></tr><tr><th> Daya Mesin </th><td> {{ $bebanmesin->daya_mesin }} </td></tr><tr><th> Tot Pemakaian </th><td> {{ $bebanmesin->tot_pemakaian }} </td></tr><tr><th> Wktu Pengukuran </th><td> {{ $bebanmesin->wktu_pengukuran }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

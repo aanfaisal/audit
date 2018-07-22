@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $ruang->ruang_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $ruang->nm_ruang }} </td></tr><tr><th> Luas Ruang </th><td> {{ $ruang->luas_ruang }} </td></tr><tr><th> Jns Lamp </th><td> {{ $ruang->jns_lamp }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $ruang->nm_ruang }} </td></tr><tr><th> Luas Ruang </th><td> {{ $ruang->luas_ruang }} </td></tr><tr><th> Jns Lamp </th><td> {{ $ruang->jns_lamp }} </td></tr><tr><th> Jml Lamp </th><td> {{ $ruang->jml_lamp }} </td></tr><tr><th> Daya Lamp </th><td> {{ $ruang->daya_lamp }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

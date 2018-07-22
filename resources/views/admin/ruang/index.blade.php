@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Jns Lamp</th><th>Actions</th>
+                                        <th>ID</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Jns Lamp</th><th>Jml Lamp</th><th>Daya Lamp</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($ruang as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td><td>{{ $item->jns_lamp }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td><td>{{ $item->jns_lamp }}</td><td>{{ $item->jml_lamp }}</td><td>{{ $item->daya_lamp }}</td>
                                         <td>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id) }}" title="View Ruang"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id . '/edit') }}" title="Edit Ruang"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

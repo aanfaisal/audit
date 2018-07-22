@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $bebanlain->bebanlain_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $bebanlain->nm_ruang }} </td></tr><tr><th> Jns Beban </th><td> {{ $bebanlain->jns_beban }} </td></tr><tr><th> Jml Beban </th><td> {{ $bebanlain->jml_beban }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $bebanlain->nm_ruang }} </td></tr><tr><th> Jns Beban </th><td> {{ $bebanlain->jns_beban }} </td></tr><tr><th> Jml Beban </th><td> {{ $bebanlain->jml_beban }} </td></tr><tr><th> Daya Beban </th><td> {{ $bebanlain->daya_beban }} </td></tr><tr><th> Tot Pemakaian </th><td> {{ $bebanlain->tot_pemakaian }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $bebanpenerangan->beban_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $bebanpenerangan->nm_ruang }} </td></tr><tr><th> Jns Lamp </th><td> {{ $bebanpenerangan->jns_lamp }} </td></tr><tr><th> Jml Lamp </th><td> {{ $bebanpenerangan->jml_lamp }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $bebanpenerangan->nm_ruang }} </td></tr><tr><th> Jns Lamp </th><td> {{ $bebanpenerangan->jns_lamp }} </td></tr><tr><th> Jml Lamp </th><td> {{ $bebanpenerangan->jml_lamp }} </td></tr><tr><th> Daya Lamp </th><td> {{ $bebanpenerangan->daya_lamp }} </td></tr><tr><th> Tot Pemakaian </th><td> {{ $bebanpenerangan->tot_pemakaian }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

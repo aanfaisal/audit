@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Jns Beban</th><th>Jml Beban</th><th>Actions</th>
+                                        <th>ID</th><th>Nm Ruang</th><th>Jns Beban</th><th>Jml Beban</th><th>Daya Beban</th><th>Tot Pemakaian</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($bebanlain as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_beban }}</td><td>{{ $item->jml_beban }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_beban }}</td><td>{{ $item->jml_beban }}</td><td>{{ $item->daya_beban }}</td><td>{{ $item->tot_pemakaian }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-lain/' . $item->bebanlain_id) }}" title="View BebanLain"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/beban-lain/' . $item->bebanlain_id . '/edit') }}" title="Edit BebanLain"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
