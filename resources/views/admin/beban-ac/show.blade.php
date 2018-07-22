@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Lihat #{{ $bebanac->bebanac_id }} Beban AC (Air Conditioner)
+    Bebanac
 @endsection
 
 @section('maincontent')
@@ -10,22 +10,22 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Beban AC (Air Conditioner)</h3>
+                    <h3>Bebanac</h3>
                   </div>
             </div>
-
+ 
             <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Data</small>Beban AC</h2>
+                    <h2>Bebanac<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
 
-                        <a href="{{ url('/manage/beban-ac') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <a href="{{ url('/manage/beban-ac') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/manage/beban-ac/' . $bebanac->bebanac_id . '/edit') }}" title="Edit BebanAc"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $bebanac->bebanac_id }}</td>
                                     </tr>
-                                    <tr><th> Nama Ruang </th><td> {{ $bebanac->nm_ruang }} </td></tr><tr><th> Jumlah AC </th><td> {{ $bebanac->jml_ac }} </td></tr><tr><th> Daya AC </th><td> {{ $bebanac->daya_ac }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $bebanac->nm_ruang }} </td></tr><tr><th> Jml Ac </th><td> {{ $bebanac->jml_ac }} </td></tr><tr><th> Daya Ac </th><td> {{ $bebanac->daya_ac }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -58,7 +58,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section('htmlpage')
 

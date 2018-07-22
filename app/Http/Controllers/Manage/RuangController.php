@@ -23,10 +23,15 @@ class RuangController extends Controller
         if (!empty($keyword)) {
             $ruang = Ruang::where('nm_ruang', 'LIKE', "%$keyword%")
                 ->orWhere('luas_ruang', 'LIKE', "%$keyword%")
-                ->orWhere('tot_dayapenerangan', 'LIKE', "%$keyword%")
-                ->orWhere('tot_dayaac', 'LIKE', "%$keyword%")
-                ->orWhere('tot_dayalain', 'LIKE', "%$keyword%")
-                ->orWhere('tot_dayamesin', 'LIKE', "%$keyword%")
+                ->orWhere('jns_lamp', 'LIKE', "%$keyword%")
+                ->orWhere('jml_lamp', 'LIKE', "%$keyword%")
+                ->orWhere('daya_lamp', 'LIKE', "%$keyword%")
+                ->orWhere('nmbebanac', 'LIKE', "%$keyword%")
+                ->orWhere('jml_ac', 'LIKE', "%$keyword%")
+                ->orWhere('daya_ac', 'LIKE', "%$keyword%")
+                ->orWhere('jnsbebanlain', 'LIKE', "%$keyword%")
+                ->orWhere('jmlbebanlain', 'LIKE', "%$keyword%")
+                ->orWhere('dyabebanlain', 'LIKE', "%$keyword%")
                 ->orWhere('nilai_IKE', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {

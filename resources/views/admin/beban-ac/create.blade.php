@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Buat Data Beban AC (Air Conditioner)
+    Bebanac
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Beban AC (Air Conditioner)</h3>
+                    <h3>Bebanac</h3>
                   </div>
             </div>
 
@@ -19,12 +19,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><small>Data</small>Beban AC</h2>
+                    <h2>Bebanac<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
-                        <a href="{{ url('/manage/beban-ac') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <a href="{{ url('/manage/beban-ac') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -47,7 +47,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('htmlpage')

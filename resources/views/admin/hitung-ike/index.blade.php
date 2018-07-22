@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Hitungan IKE per Waktu
+    Hitungike
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Perhitungan IKE per Waktu Pengukuran</h3>
+                    <h3>Hitungike</h3>
                   </div>
             </div>
  
@@ -19,14 +19,14 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Perhitungan IKE per Waktu Pengukuran</h2>
+                    <h2>Hitungike<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/hitung-ike/create') }}" class="btn btn-success btn-sm" title="Add New HitungIke">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/hitung-ike', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -48,14 +48,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Wktu Pengukuran</th><th>Hasil Perhitungan</th><th>Actions</th>
+                                        <th>ID</th><th>Wktu Pengukuran</th><th>Hsil Perhitungan</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($hitungike as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->wktu_pengukuran }}</td><td>{{ $item->hsil_perhitungan }}</td>
                                         <td>
                                             <a href="{{ url('/manage/hitung-ike/' . $item->ike_id) }}" title="View HitungIke"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

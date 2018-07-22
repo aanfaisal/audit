@@ -25,7 +25,7 @@ class Ruang extends Model
      *
      * @var array
      */
-    protected $fillable = ['nm_ruang', 'luas_ruang', 'tot_dayapenerangan', 'tot_dayaac', 'tot_dayalain', 'tot_dayamesin', 'nilai_IKE'];
+    protected $fillable = ['nm_ruang', 'luas_ruang', 'jns_lamp', 'jml_lamp', 'daya_lamp', 'nmbebanac', 'jml_ac', 'daya_ac', 'jnsbebanlain', 'jmlbebanlain', 'dyabebanlain', 'nilai_IKE'];
 
     
 }

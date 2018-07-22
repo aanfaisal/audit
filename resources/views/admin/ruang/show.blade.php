@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Lihat Data #{{ $ruang->ruang_id }} Ruang Gedung
+    Ruang
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Ruangan Gedung</h3>
+                    <h3>Ruang</h3>
                   </div>
             </div>
  
@@ -19,13 +19,13 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ruang Gedung</h2>
+                    <h2>Ruang<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
 
-                        <a href="{{ url('/manage/ruang') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <a href="{{ url('/manage/ruang') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/manage/ruang/' . $ruang->ruang_id . '/edit') }}" title="Edit Ruang"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
@@ -48,7 +48,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $ruang->ruang_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $ruang->nm_ruang }} </td></tr><tr><th> Luas Ruang </th><td> {{ $ruang->luas_ruang }} </td></tr><tr><th> Tot Dayapenerangan </th><td> {{ $ruang->tot_dayapenerangan }} </td></tr>
+                                    <tr><th> Nm Ruang </th><td> {{ $ruang->nm_ruang }} </td></tr><tr><th> Luas Ruang </th><td> {{ $ruang->luas_ruang }} </td></tr><tr><th> Jns Lamp </th><td> {{ $ruang->jns_lamp }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

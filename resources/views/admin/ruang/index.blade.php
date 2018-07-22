@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Data Ruang Gedung
+    Ruang
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Data Ruang</h3>
+                    <h3>Ruang</h3>
                   </div>
             </div>
  
@@ -19,14 +19,14 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Ruangan Gedung</h2>
+                    <h2>Ruang<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/ruang/create') }}" class="btn btn-success btn-sm" title="Add New Ruang">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/ruang', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -48,7 +48,7 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Nama Ruang</th><th>Luas Ruang</th><th>Aksi</th>
+                                        <th>ID</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Jns Lamp</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +56,7 @@
                                 @foreach($ruang as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td>
+                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td><td>{{ $item->jns_lamp }}</td>
                                         <td>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id) }}" title="View Ruang"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id . '/edit') }}" title="Edit Ruang"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

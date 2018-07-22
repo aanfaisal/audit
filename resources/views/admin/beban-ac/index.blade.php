@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Data Beban AC (Air Conditioner)
+    Bebanac
 @endsection
 
 @section('maincontent')
@@ -10,36 +10,23 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Beban AC (Air Conditioner)</h3>
+                    <h3>Bebanac</h3>
                   </div>
             </div>
-
+ 
             <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-bars"></i>   Data Beban AC</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Export PDF</a>
-                          </li>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-
+                    <h2>Bebanac<small>Data</small></h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/beban-ac/create') }}" class="btn btn-success btn-sm" title="Add New BebanAc">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/beban-ac', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -61,14 +48,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Nama Ruang</th><th>Jumlah AC</th><th>Daya AC</th><th>Aksi</th>
+                                        <th>ID</th><th>Nm Ruang</th><th>Jml Ac</th><th>Daya Ac</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanac as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->nm_ruang }}</td><td>{{ $item->jml_ac }}</td><td>{{ $item->daya_ac }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

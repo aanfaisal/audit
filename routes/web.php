@@ -43,3 +43,11 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::resource('manage/beban-lain', 'Manage\\BebanLainController');
     Route::resource('manage/user', 'Manage\\UsersController');
 });
+
+Route::resource('manage/profil', 'Manage\\ProfilController');
+Route::resource('manage/hitung-ike', 'Manage\\HitungIkeController');
+Route::resource('manage/beban-penerangan', 'Manage\\BebanPeneranganController');
+Route::resource('manage/beban-mesin', 'Manage\\BebanMesinController');
+Route::resource('manage/beban-ac', 'Manage\\BebanAcController');
+Route::resource('manage/beban-lain', 'Manage\\BebanLainController');
+Route::resource('manage/ruang', 'Manage\\RuangController');
