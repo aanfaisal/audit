@@ -71,7 +71,7 @@
                                 @foreach($hitungike as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
+                                        <td>{{ date('D, d/m/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>{{ $item->hsil_perhitungan }}</td>
                                         <td>
                                             <a href="{{ url('/manage/hitung-ike/' . $item->ike_id) }}" title="View HitungIke"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Ruang
+    Edit Data Ruang Gedung
 @endsection
 
 @section('maincontent')
@@ -10,20 +10,20 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Ruang</h3>
+                    <h3>Edit Data Ruang Gedung</h3>
                   </div>
             </div>
 
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ruang<small>Data</small></h2>
+                    <h2>Edit Data Ruang Gedung</h2>
                     <div class="clearfix"></div>
                   </div>
-
                   <div class="x_content">
+
                         <a href="{{ url('/manage/ruang') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
@@ -36,9 +36,14 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/manage/ruang', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::model($ruang, [
+                            'method' => 'PATCH',
+                            'url' => ['/manage/ruang', $ruang->ruang_id],
+                            'class' => 'form-horizontal',
+                            'files' => true
+                        ]) !!}
 
-                        @include ('admin.ruang.form')
+                        @include ('admin.ruang.form', ['submitButtonText' => 'Update'])
 
                         {!! Form::close() !!}
 
@@ -48,7 +53,6 @@
         </div>
     </div>
 @endsection
-
 @section('htmlpage')
 
 @endsection

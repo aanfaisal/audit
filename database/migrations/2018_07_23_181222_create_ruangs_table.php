@@ -25,7 +25,11 @@ class CreateRuangsTable extends Migration
             $table->string('jnsbebanlain')->nullable();
             $table->string('jmlbebanlain')->nullable();
             $table->string('dyabebanlain')->nullable();
+            $table->string('nm_mesin')->nullable();
+            $table->string('jml_mesin')->nullable();
+            $table->string('daya_mesin')->nullable();
             $table->string('nilai_IKE')->nullable();
+            
             $table->timestamps();
             $table->softDeletes();
             });

@@ -32,10 +32,13 @@ class RuangController extends Controller
                 ->orWhere('jnsbebanlain', 'LIKE', "%$keyword%")
                 ->orWhere('jmlbebanlain', 'LIKE', "%$keyword%")
                 ->orWhere('dyabebanlain', 'LIKE', "%$keyword%")
+                ->orWhere('nm_mesin', 'LIKE', "%$keyword%")
+                ->orWhere('jml_mesin', 'LIKE', "%$keyword%")
+                ->orWhere('daya_mesin', 'LIKE', "%$keyword%")
                 ->orWhere('nilai_IKE', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $ruang = Ruang::orderBy('nm_ruang', 'desc')->paginate($perPage);
+            $ruang = Ruang::latest()->paginate($perPage);
         }
 
         return view('admin.ruang.index', compact('ruang'));
@@ -48,7 +51,7 @@ class RuangController extends Controller
      */
     public function create()
     {
-        return view('admin.ruang.create1');
+        return view('admin.ruang.create');
     }
 
     /**

@@ -18,5 +18,5 @@ php artisan crud:generate BebanLain --fields="nm_ruang#string; jns_beban#string;
 
 //its new generate
 
-php artisan crud:generate Ruang --fields="nm_ruang#string; luas_ruang#string; jns_lamp#string; jml_lamp#string; daya_lamp#string; nmbebanac#string; jml_ac#string; daya_ac#string; jnsbebanlain#string; jmlbebanlain#string; dyabebanlain#string; nilai_IKE#string" --pk="ruang_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
+php artisan crud:generate Ruang --fields="nm_ruang#string; luas_ruang#string; jns_lamp#string; jml_lamp#string; daya_lamp#string; nmbebanac#string; jml_ac#string; daya_ac#string; jnsbebanlain#string; jmlbebanlain#string; dyabebanlain#string; nm_mesin#string; jml_mesin#string; daya_mesin#string; nilai_IKE#string" --pk="ruang_id" --form-helper=laravelcollective --controller-namespace=Manage --view-path=admin --route-group=manage
 

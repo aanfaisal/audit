@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $chart = Charts::database(HitungIke::all(), 'bar', 'highcharts')
         ->title(' ')    
-        ->elementLabel("Hasil Perhitungan IKE")
+        ->elementLabel("Frekuensi Perhitungan IKE / Bulan")
             ->dimensions(500, 300)
             ->responsive(false)
             ->dateColumn('wktu_pengukuran')

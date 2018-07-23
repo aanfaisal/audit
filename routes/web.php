@@ -52,3 +52,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('laporandashboard', 'LaporanController@laporandashboard');
 });
 
+
+Route::resource('manage/ruang', 'Manage\\RuangController');

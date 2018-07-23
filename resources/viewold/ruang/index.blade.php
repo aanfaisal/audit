@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Ruang
+    Data Ruang Gedung
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Ruang</h3>
+                    <h3>Data Ruang</h3>
                   </div>
             </div>
  
@@ -19,14 +19,26 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ruang<small>Data</small></h2>
+                    <h2>Data Ruangan Gedung</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url('laporanruang') }}">Export PDF</a>
+                          </li>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-
+                  
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/ruang/create') }}" class="btn btn-success btn-sm" title="Add New Ruang">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/ruang', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -48,14 +60,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Jns Lamp</th><th>Jml Lamp</th><th>Daya Lamp</th><th>Actions</th>
+                                        <th>No</th><th>Nm Ruang</th><th>Luas Ruang</th><th>Jns Lamp</th><th>Jml Lamp</th><th>Daya Lamp</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($ruang as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nm_ruang }}</td><td>{{ $item->luas_ruang }}</td><td>{{ $item->jns_lamp }}</td><td>{{ $item->jml_lamp }}</td><td>{{ $item->daya_lamp }}</td>
                                         <td>
                                             <a href="{{ url('/manage/ruang/' . $item->ruang_id) }}" title="View Ruang"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
