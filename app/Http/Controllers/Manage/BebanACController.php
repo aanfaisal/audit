@@ -42,7 +42,7 @@ class BebanAcController extends Controller
      */
     public function create()
     {
-        return view('admin.beban-ac.create');
+        return view('admin.beban-ac.create1');
     }
 
     /**

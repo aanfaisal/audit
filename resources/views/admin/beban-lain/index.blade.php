@@ -13,7 +13,7 @@
                     <h3>Data Beban Lain</h3>
                   </div>
             </div>
- 
+
             <div class="clearfix"></div>
         <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -39,7 +39,7 @@
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/beban-lain/create') }}" class="btn btn-success btn-sm" title="Add New BebanLain">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/beban-lain', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -58,20 +58,32 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Jns Beban</th><th>Jml Beban</th><th>Daya Beban</th><th>Tot Pemakaian</th><th>Actions</th>
+                                        <th>No</th>
+                                        <th>Nama Ruang</th>
+                                        <th>Jenis Beban</th>
+                                        <th>Jumlah Beban</th>
+                                        <th>Daya Beban (watt)</th>
+                                        <th>Total Pemakaian (jam)</th>
+                                        <th>Waktu Pengukuran</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanlain as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jns_beban }}</td><td>{{ $item->jml_beban }}</td><td>{{ $item->daya_beban }}</td><td>{{ $item->tot_pemakaian }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->jns_beban }}</td>
+                                        <td>{{ $item->jml_beban }}</td>
+                                        <td>{{ $item->daya_beban }}</td>
+                                        <td class="text-center">{{ $item->tot_pemakaian }}</td>
+                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
-                                            <a href="{{ url('/manage/beban-lain/' . $item->bebanlain_id) }}" title="View BebanLain"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/manage/beban-lain/' . $item->bebanlain_id) }}" title="View BebanLain"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-lain/' . $item->bebanlain_id . '/edit') }}" title="Edit BebanLain"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',

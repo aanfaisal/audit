@@ -24,7 +24,7 @@
                   </div>
                   
                   <div class="x_content">
-                        <a href="{{ url('/manage/beban-mesin') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/manage/beban-mesin') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <br />
                         <br />
 

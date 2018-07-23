@@ -39,7 +39,7 @@
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/beban-mesin/create') }}" class="btn btn-success btn-sm" title="Add New BebanMesin">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/beban-mesin', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -58,20 +58,24 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Nm Mesin</th><th>Daya Mesin</th><th>Tot Pemakaian</th><th>Wktu Pengukuran</th><th>Actions</th>
+                                        <th>ID</th><th>Nama Ruang</th><th>Nama Mesin</th><th>Daya Mesin (watt)</th><th>Total Pemakaian (jam)</th><th>Wktu Pengukuran</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanmesin as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->nm_mesin }}</td><td>{{ $item->daya_mesin }}</td><td>{{ $item->tot_pemakaian }}</td><td>{{ $item->wktu_pengukuran }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->nm_mesin }}</td>
+                                        <td>{{ $item->daya_mesin }}</td>
+                                        <td class="text-center">{{ $item->tot_pemakaian }}</td>
+                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
-                                            <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id) }}" title="View BebanMesin"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id) }}" title="View BebanMesin"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id . '/edit') }}" title="Edit BebanMesin"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',

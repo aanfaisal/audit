@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Data Profil Gedung
+    Profil Gedung
 @endsection
 
 @section('maincontent')
@@ -10,24 +10,24 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Data Profil Gedung</h3>
+                    <h3>Profil Data Gedung</h3>
                   </div>
             </div>
-
+ 
             <div class="clearfix"></div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                        <div class="x_title">
-                            <h2>Data Profil Gedung</h2>
-                            <div class="clearfix"></div>
-                        </div>
+        <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Profil Gedung</h2>
+                    <div class="clearfix"></div>
+                  </div>
 
                   <div class="x_content">
             @include('layouts._flash')
-                        <a href="{{ url('/manage/profil/create') }}" class="btn btn-success btn-sm" title="Add New Profil">
+                        {{-- <a href="{{ url('/manage/profil/create') }}" class="btn btn-success btn-sm" title="Add New Profil">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
+                        </a> --}}
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/profil', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
                         <div class="title_right">
@@ -48,15 +48,15 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>P Gedung</th><th>Nama Institusi</th><th>Alamat</th><th>Jml Gedung</th><th>Jml Lantai</th><th>Actions</th>
+                                        <th>No</th><th>Nama Gedung</th><th>Nama Institusi</th><th>Alamat</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($profil as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->p_gedung }}</td><td>{{ $item->nama_institusi }}</td><td>{{ $item->alamat }}</td><td>{{ $item->jml_gedung }}</td><td>{{ $item->jml_lantai }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->p_gedung }}</td><td>{{ $item->nama_institusi }}</td><td>{{ $item->alamat }}</td>
                                         <td>
                                             <a href="{{ url('/manage/profil/' . $item->profil_id) }}" title="View Profil"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/profil/' . $item->profil_id . '/edit') }}" title="Edit Profil"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

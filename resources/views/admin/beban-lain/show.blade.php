@@ -19,13 +19,13 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bebanlain<small>Data</small></h2>
+                    <h2>Data Bebanlain </h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
 
-                        <a href="{{ url('/manage/beban-lain') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/manage/beban-lain') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <a href="{{ url('/manage/beban-lain/' . $bebanlain->bebanlain_id . '/edit') }}" title="Edit BebanLain"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
@@ -48,7 +48,21 @@
                                     <tr>
                                         <th>ID</th><td>{{ $bebanlain->bebanlain_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $bebanlain->nm_ruang }} </td></tr><tr><th> Jns Beban </th><td> {{ $bebanlain->jns_beban }} </td></tr><tr><th> Jml Beban </th><td> {{ $bebanlain->jml_beban }} </td></tr><tr><th> Daya Beban </th><td> {{ $bebanlain->daya_beban }} </td></tr><tr><th> Tot Pemakaian </th><td> {{ $bebanlain->tot_pemakaian }} </td></tr>
+                                    <tr><th> Nama Ruang </th>
+                                        <td> {{ $bebanlain->nm_ruang }} </td>
+                                    </tr>
+                                    <tr><th> Jenis Beban </th>
+                                        <td> {{ $bebanlain->jns_beban }} </td>
+                                    </tr>
+                                    <tr><th> Jumlah Beban </th>
+                                        <td> {{ $bebanlain->jml_beban }} </td>
+                                    </tr>
+                                    <tr><th> Daya Beban </th>
+                                        <td> {{ $bebanlain->daya_beban }} </td>
+                                    </tr>
+                                    <tr><th> Total Pemakaian </th>
+                                        <td> {{ $bebanlain->tot_pemakaian }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

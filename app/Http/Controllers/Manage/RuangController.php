@@ -48,7 +48,7 @@ class RuangController extends Controller
      */
     public function create()
     {
-        return view('admin.ruang.create');
+        return view('admin.ruang.create1');
     }
 
     /**

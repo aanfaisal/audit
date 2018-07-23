@@ -25,8 +25,8 @@
 
                   <div class="x_content">
             @include('layouts._flash')
-                        <a href="{{ url('/manage/hitung-ike/create') }}" class="btn btn-success btn-sm" title="Add New HitungIke">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        <a href="{{ url('/manage/hitung-ike/create') }}" class="btn btn-default btn-sm" title="Add New HitungIke">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/hitung-ike', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -45,18 +45,22 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Wktu Pengukuran</th><th>Hsil Perhitungan</th><th>Actions</th>
+                                        <th>No</th>
+                                        <th>Waktu Pengukuran (/hari)</th>
+                                        <th>Hasil Perhitungan</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($hitungike as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->wktu_pengukuran }}</td><td>{{ $item->hsil_perhitungan }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
+                                        <td>{{ $item->hsil_perhitungan }}</td>
                                         <td>
                                             <a href="{{ url('/manage/hitung-ike/' . $item->ike_id) }}" title="View HitungIke"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/manage/hitung-ike/' . $item->ike_id . '/edit') }}" title="Edit HitungIke"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

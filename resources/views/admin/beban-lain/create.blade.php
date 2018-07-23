@@ -19,12 +19,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bebanlain<small>Data</small></h2>
+                    <h2>Data Bebanlain </h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="x_content">
-                        <a href="{{ url('/manage/beban-lain') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/manage/beban-lain') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <br />
                         <br />
 

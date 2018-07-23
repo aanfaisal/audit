@@ -39,7 +39,7 @@
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/beban-ac/create') }}" class="btn btn-success btn-sm" title="Add New BebanAc">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/beban-ac', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}
@@ -58,20 +58,24 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Nm Ruang</th><th>Jml Ac</th><th>Daya Ac</th><th>Tot Pemakaian</th><th>Wktu Pengukuran</th><th>Actions</th>
+                                        <th>No</th><th>Nama Ruang</th><th>Jumlah AC</th><th>Daya AC (watt)</th><th>Total Pemakaian (jam)</th><th>Waktu Pengukuran</th><th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($bebanac as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nm_ruang }}</td><td>{{ $item->jml_ac }}</td><td>{{ $item->daya_ac }}</td><td>{{ $item->tot_pemakaian }}</td><td>{{ $item->wktu_pengukuran }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->jml_ac }}</td>
+                                        <td>{{ $item->daya_ac }}</td>
+                                        <td class="text-center">{{ $item->tot_pemakaian }}</td>
+                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
-                                            <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id . '/edit') }}" title="Edit BebanAc"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',

@@ -22,7 +22,7 @@
                     <h2>Lihat Data Beban Mesin</h2>
                     <div class="clearfix"></div>
                   </div>
-                        <a href="{{ url('/manage/beban-mesin') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/manage/beban-mesin') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <a href="{{ url('/manage/beban-mesin/' . $bebanmesin->bebanmesin_id . '/edit') }}" title="Edit BebanMesin"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([
                             'method'=>'DELETE',
@@ -43,9 +43,29 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $bebanmesin->bebanmesin_id }}</td>
+                                        <th>ID</th>
+                                        <td>{{ $bebanmesin->bebanmesin_id }}</td>
                                     </tr>
-                                    <tr><th> Nm Ruang </th><td> {{ $bebanmesin->nm_ruang }} </td></tr><tr><th> Nm Mesin </th><td> {{ $bebanmesin->nm_mesin }} </td></tr><tr><th> Daya Mesin </th><td> {{ $bebanmesin->daya_mesin }} </td></tr><tr><th> Tot Pemakaian </th><td> {{ $bebanmesin->tot_pemakaian }} </td></tr><tr><th> Wktu Pengukuran </th><td> {{ $bebanmesin->wktu_pengukuran }} </td></tr>
+                                    <tr>
+                                        <th> Nama Ruang </th>
+                                        <td> {{ $bebanmesin->nm_ruang }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Nama Mesin </th>
+                                        <td> {{ $bebanmesin->nm_mesin }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Daya Mesin </th>
+                                        <td> {{ $bebanmesin->daya_mesin }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Total Pemakaian </th>
+                                        <td> {{ $bebanmesin->tot_pemakaian }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Waktu Pengukuran </th>
+                                        <td> {{ $bebanmesin->wktu_pengukuran }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
