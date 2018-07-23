@@ -35,7 +35,7 @@ class RuangController extends Controller
                 ->orWhere('nilai_IKE', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $ruang = Ruang::latest()->paginate($perPage);
+            $ruang = Ruang::orderBy('nm_ruang', 'desc')->paginate($perPage);
         }
 
         return view('admin.ruang.index', compact('ruang'));

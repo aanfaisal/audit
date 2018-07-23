@@ -29,7 +29,7 @@ class BebanAcController extends Controller
                 ->orWhere('tot_dayaac', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $bebanac = BebanAc::latest()->paginate($perPage);
+            $bebanac = BebanAc::orderBy('wktu_pengukuran', 'desc')->paginate($perPage);
         }
 
         return view('admin.beban-ac.index', compact('bebanac'));

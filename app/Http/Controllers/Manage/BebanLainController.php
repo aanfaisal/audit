@@ -30,7 +30,7 @@ class BebanLainController extends Controller
                 ->orWhere('tot_dayalain', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $bebanlain = BebanLain::latest()->paginate($perPage);
+            $bebanlain = BebanLain::orderBy('wktu_pengukuran', 'desc')->paginate($perPage);
         }
 
         return view('admin.beban-lain.index', compact('bebanlain'));

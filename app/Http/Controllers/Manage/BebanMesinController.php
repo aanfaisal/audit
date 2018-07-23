@@ -29,7 +29,7 @@ class BebanMesinController extends Controller
                 ->orWhere('tot_dayamesin', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $bebanmesin = BebanMesin::latest()->paginate($perPage);
+            $bebanmesin = BebanMesin::orderBy('wktu_pengukuran', 'desc')->paginate($perPage);
         }
 
         return view('admin.beban-mesin.index', compact('bebanmesin'));

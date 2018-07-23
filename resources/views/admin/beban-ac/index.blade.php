@@ -73,7 +73,7 @@
                                         <td>{{ $item->jml_ac }}</td>
                                         <td>{{ $item->daya_ac }}</td>
                                         <td class="text-center">{{ $item->tot_pemakaian }}</td>
-                                        <td>{{ date('m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
+                                        <td>{{ date('D, d/m/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id) }}" title="View BebanAc"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-ac/' . $item->bebanac_id . '/edit') }}" title="Edit BebanAc"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -30,12 +30,12 @@
                       <p>Selamat Datang di {{ env('APP_NAME') }} ~ Sistem Informasi Audit Energi Listrik</p>
                     </div>
                   </div>
-                  <div class="row">
+                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6">
                       <div class="dashboard_graph x_panel">
                         <div class="row x_title">
-                          <div class="col-md-6">
-                            <h3>Graph IKE Perhari</h3>
+                          <div class="col-md-8">
+                            <h3>Graph IKE 7 Hari Terakhir</h3>
                           </div>
                         </div>
                         <div class="x_content">
@@ -67,8 +67,34 @@
          <div class="container">
               <div class="jumbotron">
                 <h3>Status Standar IKE</h3>
-                <p>Nama Gedung : Gedung D Universitas Wahid Hasyim Semarang</p>
-                <p>Sesuai dengan SNI 6096:2011 maka Gedung ini dinyatakan<strong> Cukup Efisien</strong> dengan nilai IKE rata-rata<strong> 13,68</strong><p> 
+                <p>Nama Gedung : 
+                  @foreach ($gedung as $dt)
+                              {{ $dt }}
+                  @endforeach<p>
+                <p>
+                  Nama Institusi :
+                    @foreach ($nama as $dt)
+                              {{ $dt }}
+                    @endforeach
+
+                </p>
+                <p>Sesuai dengan SNI 6096:2011 maka Gedung ini dinyatakan
+                  <strong>
+                        @if ($rata2 < 8)
+                            Sangat Efisien
+                        @elseif ($rata2 < 12)
+                            Efisien
+                        @elseif ($rata2 < 14)
+                            Cukup Efisien
+                        @elseif ($rata2 < 19)
+                            Cenderung Tidak Efisien
+                        @elseif ($rata2 < 23)
+                            Tidak Efisien
+                        @else
+                            Sangat Tidak Efisien
+                        @endif
+                  </strong>
+                  dengan nilai IKE rata-rata<strong> {{ number_format($rata2, 2, '.', '') }}</strong><p> 
               </div>
           </div>
     </div>

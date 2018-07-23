@@ -30,7 +30,7 @@ class BebanPeneranganController extends Controller
                 ->orWhere('tot_dayapen', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $bebanpenerangan = BebanPenerangan::latest()->paginate($perPage);
+            $bebanpenerangan = BebanPenerangan::orderBy('wktu_pengukuran', 'desc')->paginate($perPage);
         }
 
         return view('admin.beban-penerangan.index', compact('bebanpenerangan'));

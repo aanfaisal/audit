@@ -25,7 +25,7 @@ class HitungIkeController extends Controller
                 ->orWhere('hsil_perhitungan', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $hitungike = HitungIke::latest()->paginate($perPage);
+            $hitungike = HitungIke::orderBy('wktu_pengukuran', 'desc')->paginate($perPage);
         }
 
         return view('admin.hitung-ike.index', compact('hitungike'));

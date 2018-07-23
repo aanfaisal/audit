@@ -112,7 +112,7 @@ class ProfilController extends Controller
         $profil = Profil::findOrFail($id);
         $profil->update($requestData);
 
-        return redirect('manage/profil')->with('flash_message', 'Profil updated!');
+        return redirect('manage/profil/1/edit')->with('flash_message', 'Profil updated!');
     }
 
     /**

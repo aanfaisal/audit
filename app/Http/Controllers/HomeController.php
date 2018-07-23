@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Charts;
+use DB;
 use App\HitungIke;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,6 +44,11 @@ class HomeController extends Controller
             ->lastByDay();
             //->groupByMonth('2018', true);
 
-        return view('home', ['chart' => $chart, 'charti' => $charti]);
+        $t = DB::table('hitung_ikes')->avg('hsil_perhitungan');
+        //Table::select('name','surname')->where('id', 1)->get();
+        $nama = DB::table('profils')->where('profil_id', 1)->pluck('nama_institusi');
+        $gedung = DB::table('profils')->where('profil_id', 1)->pluck('p_gedung');
+        //dd($nama);
+        return view('home', ['chart' => $chart, 'charti' => $charti, 'rata2' => $t, 'nama' => $nama, 'gedung' => $gedung ]);
     }
 }
