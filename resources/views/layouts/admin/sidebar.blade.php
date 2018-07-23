@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
       <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-          <a href="{{ url('/') }}" class="site_title"><i class="fa fa-building-o"></i> <span>{{ config('app.name', 'Laravel') }} | App</span></a>
+          <a href="{{ url('/') }}" class="site_title"><i class="fa fa-building-o"></i> <span>{{ config('app.name') }} | App</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -36,7 +36,9 @@
                   <ul class="nav child_menu">
                       <li><a href="{{ url('manage/profil/1/edit') }}">Profil Gedung</a></li>
                       <li><a href="{{ url('manage/ruang') }}">Data Ruang</a></li>
+                      @role('admin')
                       <li><a href="{{ url('manage/user') }}">User Managemen</a></li>
+                      @endrole
                   </ul>
                 </li> 
               </ul>

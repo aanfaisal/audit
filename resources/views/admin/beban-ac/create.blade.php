@@ -54,5 +54,10 @@
 @endsection
 
 @section('jspage')
-
+    <!-- DateJS -->
+    <script src="{{ asset('plugins/DateJS/build/date.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('plugins/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    
 @endsection

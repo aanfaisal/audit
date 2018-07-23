@@ -42,5 +42,13 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::resource('manage/beban-ac', 'Manage\\BebanAcController');
     Route::resource('manage/beban-lain', 'Manage\\BebanLainController');
     Route::resource('manage/user', 'Manage\\UsersController');
+
+    Route::get('laporanbebanmesin', 'LaporanController@laporanbebanmesin');
+    Route::get('laporanbebanlain', 'LaporanController@laporanbebanlain');
+    Route::get('laporanbebanac', 'LaporanController@laporanbebanac');
+    Route::get('laporanbebanpenerangan', 'LaporanController@laporanbebanpenerangan');
+    Route::get('laporanruang', 'LaporanController@laporanruang');
+    Route::get('laporandataike', 'LaporanController@laporandataike');
+    Route::get('laporandashboard', 'LaporanController@laporandashboard');
 });
 

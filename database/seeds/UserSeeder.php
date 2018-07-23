@@ -35,11 +35,11 @@ class UserSeeder extends Seeder
         // Membuat sample member
         $member = new User();
         $member->name = "Auditor";
+        $member->username = "auditor";
         $member->email = 'auditor@gmail.com';
         $member->password = bcrypt('rahasia');
-        $admin->gender = "auditor";
-        $admin->username = "auditor";
-        $admin->address = "Jalan Kedungpane Raya 2 No.43 Semarang";
+        $member->gender = "auditor";
+        $member->address = "Jalan Kedungpane Raya 2 No.43 Semarang";
         $member->status = "aktif";
         $member->save();
         $member->attachRole($memberRole);
