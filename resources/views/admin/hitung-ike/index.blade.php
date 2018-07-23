@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Hitungike
+    Hitungan IKE per Waktu
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Hitungike</h3>
+                    <h3>Perhitungan IKE per Waktu Pengukuran</h3>
                   </div>
             </div>
  
@@ -19,7 +19,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Hitungike<small>Data</small></h2>
+                    <h2>Data Perhitungan IKE per Waktu Pengukuran</h2>
                     <div class="clearfix"></div>
                   </div>
 

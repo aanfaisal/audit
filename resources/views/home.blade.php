@@ -24,7 +24,7 @@
                 </div>
                 <div class="x_content">
 
-                  <div class="bs-example" data-example-id="simple-jumbotron">
+                  <div class="container">
                     <div class="jumbotron">
                       <h3>Hi, {{ auth()->user()->name }}</h3>
                       <p>Selamat Datang di {{ env('APP_NAME') }} ~ Sistem Informasi Audit Energi Listrik</p>
@@ -64,7 +64,7 @@
               </div>
             </div>
         </div>
-         <div class="bs-example" data-example-id="simple-jumbotron">
+         <div class="container">
               <div class="jumbotron">
                 <h3>Status Standar IKE</h3>
                 <p>Nama Gedung : Gedung D Universitas Wahid Hasyim Semarang</p>

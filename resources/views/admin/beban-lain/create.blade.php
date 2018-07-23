@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Bebanlain
+   Buat Data Beban Lain
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Bebanlain</h3>
+                    <h3>Buat Data Beban Lain</h3>
                   </div>
             </div>
 

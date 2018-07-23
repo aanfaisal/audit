@@ -14,13 +14,14 @@ class CreateBebanAcsTable extends Migration
     {
         Schema::create('beban_acs', function (Blueprint $table) {
             $table->increments('bebanac_id');
-            $table->timestamps();
             $table->string('nm_ruang')->nullable();
             $table->string('jml_ac')->nullable();
             $table->string('daya_ac')->nullable();
             $table->string('tot_pemakaian')->nullable();
             $table->dateTime('wktu_pengukuran')->nullable();
             $table->string('tot_dayaac')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
             });
     }
 

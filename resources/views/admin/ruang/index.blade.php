@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Ruang
+    Data Ruang Gedung
 @endsection
 
 @section('maincontent')
@@ -10,7 +10,7 @@
         <div class="">
             <div class="page-title">
                   <div class="title_left">
-                    <h3>Ruang</h3>
+                    <h3>Data Ruang</h3>
                   </div>
             </div>
  
@@ -19,10 +19,10 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Ruang<small>Data</small></h2>
+                    <h2>Data Ruangan Gedung</h2>
                     <div class="clearfix"></div>
                   </div>
-
+                  
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/ruang/create') }}" class="btn btn-success btn-sm" title="Add New Ruang">
