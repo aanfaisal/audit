@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+use DB;
+use App\BebanPenerangan;
+use App\BebanLain;
+use App\BebanMesin;
+use App\BebanAc;
+use App\Ruang;
+use App\HitungIke;
+
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -9,30 +18,48 @@ class LaporanController extends Controller
     
     public function laporanbebanpenerangan()
     {
-        return view('admin.laporan.laporanbebanpenerangan');
+        $beban = BebanPenerangan::all();
+        $pdf = PDF::loadview('admin.laporan.laporanbebanpenerangan', compact('beban'));
+        return $pdf->download('DataBebanPenerangan-Siadit.pdf');
+        //return view('admin.laporan.laporanbebanpenerangan');
     }
     public function laporanbebanmesin()
     {
-        return view('admin.laporan.laporanbebanmesin');
+        $beban = BebanMesin::all();
+        $pdf = PDF::loadview('admin.laporan.laporanbebanmesin', compact('beban'));
+        return $pdf->download('DataBebanMesin-Siadit.pdf');
+        //return view('admin.laporan.laporanbebanmesin');
     }
     public function laporanbebanlain()
     {
-        return view('admin.laporan.laporanbebanlain');
+        $beban = BebanLain::all();
+        $pdf = PDF::loadview('admin.laporan.laporanbebanlain', compact('beban'));
+        return $pdf->download('DataBebanLain-Siadit.pdf');
+        //return view('admin.laporan.laporanbebanlain');
     }
     public function laporanbebanac()
     {
-        return view('admin.laporan.laporanbebanac');
+        $beban = BebanAc::all();
+        $pdf = PDF::loadview('admin.laporan.laporanbebanac', compact('beban'));
+        return $pdf->download('DataBebanAC-Siadit.pdf');
+        //return view('admin.laporan.laporanbebanac');
     }
 
     public function laporanruang()
     {
-        return view('admin.laporan.laporanruang');
+        $ruang = Ruang::all();
+        $pdf = PDF::loadview('admin.laporan.laporanruang', compact('ruang'));
+        return $pdf->download('DataRuanganGedung-Siadit.pdf');
+        //return view('admin.laporan.laporanruang');
     }
 
     
     public function laporandataike()
     {
-        return view('admin.laporan.laporandataike');
+        $ike = HitungIke::all();
+        $pdf = PDF::loadview('admin.laporan.laporandataike', compact('ike'));
+        return $pdf->download('DataHitunganIKE-Siadit.pdf');
+        //return view('admin.laporan.laporandataike');
     }
     public function laporandashboard()
     {

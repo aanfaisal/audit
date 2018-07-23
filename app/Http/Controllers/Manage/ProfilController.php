@@ -65,7 +65,7 @@ class ProfilController extends Controller
         
         Profil::create($requestData);
 
-        return redirect('manage/profil')->with('flash_message', 'Profil added!');
+        return redirect('manage/profil/1/edit')->with('flash_message', 'Profil added!');
     }
 
     /**

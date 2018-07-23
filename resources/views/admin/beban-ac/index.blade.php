@@ -26,7 +26,7 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Export PDF</a>
+                          <li><a href="{{ url('laporanbebanac') }}">Export PDF</a>
                           </li>
                           </li>
                         </ul>
