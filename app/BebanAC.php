@@ -27,5 +27,9 @@ class BebanAc extends Model
      */
     protected $fillable = ['nm_ruang', 'jml_ac', 'daya_ac', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayaac'];
 
+    public function ruang()
+    {
+            return $this->belongsTo('App\Ruang', 'ruang_id');
+    }
     
 }

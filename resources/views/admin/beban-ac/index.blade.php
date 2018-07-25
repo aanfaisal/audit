@@ -69,7 +69,7 @@
                                 @foreach($bebanac as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->ruang->nm_ruang }}</td>
                                         <td>{{ $item->jml_ac }}</td>
                                         <td>{{ $item->daya_ac }}</td>
                                         <td class="text-center">{{ $item->tot_pemakaian }}</td>

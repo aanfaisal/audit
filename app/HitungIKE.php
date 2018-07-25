@@ -27,5 +27,8 @@ class HitungIke extends Model
      */
     protected $fillable = ['wktu_pengukuran', 'hsil_perhitungan'];
 
-    
+    public function ruang()
+    {
+            return $this->belongsTo('App\Ruang', 'ruang_id');
+    }
 }

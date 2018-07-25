@@ -27,5 +27,8 @@ class BebanPenerangan extends Model
      */
     protected $fillable = ['nm_ruang', 'jns_lamp', 'jml_lamp', 'daya_lamp', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayapen'];
 
-    
+    public function ruang()
+    {
+            return $this->belongsTo('App\Ruang', 'ruang_id');
+    }
 }

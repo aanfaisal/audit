@@ -76,7 +76,7 @@
                                 @foreach($bebanpenerangan as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->ruang->nm_ruang }}</td>
                                         <td>{{ $item->jns_lamp }}</td>
                                         <td>{{ $item->jml_lamp }}</td>
                                         <td>{{ $item->daya_lamp }}</td>

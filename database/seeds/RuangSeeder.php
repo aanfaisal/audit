@@ -44,21 +44,15 @@ class RuangSeeder extends Seeder
            array('ruang_id' => 22, 'nm_ruang' => 'D3.06', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
            array('ruang_id' => 23, 'nm_ruang' => 'D3.07', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
            array('ruang_id' => 24, 'nm_ruang' => 'D3.08', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
-           array('ruang_id' => 1, 'nm_ruang' => 'D3.09', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
+           array('ruang_id' => 25, 'nm_ruang' => 'D3.09', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
 
-           array('ruang_id' => 1, 'nm_ruang' => 'Selasar', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
-           array('ruang_id' => 1, 'nm_ruang' => 'Halaman', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
+           array('ruang_id' => 26, 'nm_ruang' => 'Selasar', 'luas_ruang' => '400', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
+           array('ruang_id' => 27, 'nm_ruang' => 'Halaman', 'luas_ruang' => '1500', 'jns_lamp' => 'Lampu Hemat Energi', 'jml_lamp' => '4', 'daya_lamp' => '150', 'nmbebanac' => 'Samsung', 'jml_ac' => '2', 'daya_ac' => '786', 'jnsbebanlain' => 'LCD Projector', 'jmlbebanlain' => '1', 'dyabebanlain' => '320', 'nm_mesin' =>'', 'jml_mesin' => '', 'daya_mesin' => ''),
 
         );
 
         //masukkan data array ke database
         DB::table('ruangs')->insert($post);
-
-
-
-
-
-
 
 
 

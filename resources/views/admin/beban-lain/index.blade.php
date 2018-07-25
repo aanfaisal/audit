@@ -76,7 +76,7 @@
                                 @foreach($bebanlain as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nm_ruang }}</td>
+                                        <td>{{ $item->ruang->nm_ruang }}</td>
                                         <td>{{ $item->jns_beban }}</td>
                                         <td>{{ $item->jml_beban }}</td>
                                         <td>{{ $item->daya_beban }}</td>

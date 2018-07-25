@@ -27,5 +27,8 @@ class BebanMesin extends Model
      */
     protected $fillable = ['nm_ruang', 'nm_mesin', 'daya_mesin', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayamesin'];
 
-    
+    public function ruang()
+    {
+            return $this->belongsTo('App\Ruang', 'ruang_id');
+    }
 }
