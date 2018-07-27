@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateRuangsTable extends Migration
+class RuangsDetail extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +13,9 @@ class CreateRuangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ruangs', function (Blueprint $table) {
-            $table->increments('ruang_id');
-            $table->string('nm_ruang')->nullable();
-            $table->string('luas_ruang')->nullable();
+         Schema::create('ruangs_detail', function (Blueprint $table) {
+            $table->increments('detail_id');
+            $table->integer('nm_ruang')->unsigned();
             $table->string('jns_lamp')->nullable();
             $table->string('jml_lamp')->nullable();
             $table->string('daya_lamp')->nullable();
@@ -28,10 +28,9 @@ class CreateRuangsTable extends Migration
             $table->string('nm_mesin')->nullable();
             $table->string('jml_mesin')->nullable();
             $table->string('daya_mesin')->nullable();
-            $table->string('nilai_IKE')->nullable();
-            
-            $table->timestamps();
-            $table->softDeletes();
+
+            $table->foreign('nm_ruang')->references('ruang_id')->on('ruangs');
+
         });
     }
 
@@ -42,6 +41,6 @@ class CreateRuangsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ruangs');
+        Schema::drop('ruangs_detail');
     }
 }

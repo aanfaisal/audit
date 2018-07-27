@@ -51,7 +51,7 @@ class RuangController extends Controller
      */
     public function create()
     {
-        return view('admin.ruang.create');
+        return view('admin.ruang.create1');
     }
 
     /**
@@ -66,7 +66,9 @@ class RuangController extends Controller
         
         $requestData = $request->all();
         
-        Ruang::create($requestData);
+
+        dd($requestData);
+        //Ruang::create($requestData);
 
         return redirect('manage/ruang')->with('flash_message', 'Ruang added!');
     }

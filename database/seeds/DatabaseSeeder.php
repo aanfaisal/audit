@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BebanMesinSeeder::class);
         $this->call(BebanPeneranganSeeder::class);
         $this->call(HItungIKESeeder::class);
+        $this->call(ProfilSeeder::class);
         
 
         //$this->call(LaratrustSeeder::class);

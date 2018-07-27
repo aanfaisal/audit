@@ -64,25 +64,30 @@
         {!! Form::text('dyabebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('dyabebanlain', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('nm_mesin') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('nm_mesin') ? 'has-error' : ''}}">
     {!! Form::label('nm_mesin', 'Nm Mesin', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('nm_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('nm_mesin', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('jml_mesin') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('jml_mesin') ? 'has-error' : ''}}">
     {!! Form::label('jml_mesin', 'Jml Mesin', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('jml_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('jml_mesin', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('daya_mesin') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('daya_mesin') ? 'has-error' : ''}}">
     {!! Form::label('daya_mesin', 'Daya Mesin', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('daya_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
         {!! $errors->first('daya_mesin', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('nilai_IKE') ? 'has-error' : ''}}">
+</div>
+
+<div class="form-group {{ $errors->has('nilai_IKE') ? 'has-error' : ''}}">
     {!! Form::label('nilai_IKE', 'Nilai Ike', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('nilai_IKE', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}

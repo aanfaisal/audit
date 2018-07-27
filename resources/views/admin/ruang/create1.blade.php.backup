@@ -51,7 +51,7 @@
                   {!! Form::open(['url' => '/manage/ruang', 'class' => 'form-horizontal', 'files' => true]) !!}
 
                     <!-- Smart Wizard -->
-                    <p>Buat Data Ruangan</p>
+                    <p></p>
                     <div id="wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps">
                         <li>
@@ -90,6 +90,15 @@
                                           </span>
                           </a>
                         </li>
+                        <li>
+                          <a href="#step-5">
+                            <span class="step_no">5</span>
+                            <span class="step_descr">
+                                              Step 4<br />
+                                              <small>Data Mesin</small>
+                                          </span>
+                          </a>
+                        </li>
                       </ul>
                       <div id="step-1">
                        <div class="form-group {{ $errors->has('nm_ruang') ? 'has-error' : ''}}">
@@ -100,9 +109,9 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('luas_ruang') ? 'has-error' : ''}}">
-                            {!! Form::label('luas_ruang', 'Luas Ruang', ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('luas_ruang', 'Luas Ruang', ['class' => 'col-md-4 control-label']) !!}<strong>m<sup>2</sup></strong>
                             <div class="col-md-6">
-                                {!! Form::text('luas_ruang', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                                {!! Form::text('luas_ruang', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} 
                                 {!! $errors->first('luas_ruang', '<p class="help-block">:message</p>') !!}
                             </div>
                         </div>
@@ -112,19 +121,19 @@
                         <div class="form-group {{ $errors->has('jns_lamp') ? 'has-error' : ''}}">
                            {!! Form::label('jns_lamp', 'Jenis Lamp', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::text('jns_lamp', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                                {!! Form::select('jns_lamp', ['Lampu Hemat Energi' => 'Lampu Hemat Energi', 'Lampu TL' => 'Lampu TL', 'Lampu SL' => 'Lampu SL', 'Lampu Halogen' => 'Lampu Halogen'],null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                                 {!! $errors->first('jns_lamp', '<p class="help-block">:message</p>') !!}
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('jml_lamp') ? 'has-error' : ''}}">
-                            {!! Form::label('jml_lamp', 'Jumlah Lamp', ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('jml_lamp', 'Jumlah Lamp', ['class' => 'col-md-4 control-label']) !!}<strong>Pcs</strong>
                             <div class="col-md-6">
                                 {!! Form::text('jml_lamp', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                                 {!! $errors->first('jml_lamp', '<p class="help-block">:message</p>') !!}
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('daya_lamp') ? 'has-error' : ''}}">
-                            {!! Form::label('daya_lamp', 'Daya Lampu', ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('daya_lamp', 'Daya Lampu', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
                             <div class="col-md-6">
                                 {!! Form::text('daya_lamp', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                                 {!! $errors->first('daya_lamp', '<p class="help-block">:message</p>') !!}
@@ -132,7 +141,54 @@
                         </div>
                       </div>
                       <div id="step-3">
-                      <div class="form-group {{ $errors->has('nmbebanac') ? 'has-error' : ''}}">
+                      <div id="app">
+                                <h3>Data AC Ruang</h3>
+                                
+                                    <div class="row" v-for="(item,index) in jawaban">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Nama / Merk AC" class="form-control" :name="'nmbebanac['+index+']'" value="" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Jumlah AC" class="form-control" :name="'jml_ac['+index+']'" value="" required="" />
+                                            </div>
+                                            {{-- <div class="input-group">
+                                                <!-- <input type="file" name="image[]" class="form-control" accept="image/*" value=""> -->
+                                                <input type="text" :name="'image['+index+']'" v-model="jawaban[index].file" :data-key="index" :id="'image'+index" class="form-control img-input" readonly="" placeholder="Jawaban">
+                                                <div class="input-group-btn">
+                                                    <a :href="'{{ asset('/filemanager/dialog.php?type=1&relative_url=1&akey=PgH8a6M95d5235qsc6Wk2') }}&field_id=image'+index" class="btn btn-block btn-success rfmanager" data-toggle="tooltip" data-placement="top" :id="'btnfile'+index"><i class="fa fa-image fa-fw"></i></a>
+                                                </div>
+                                            </div> --}}
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Total Daya AC" class="form-control" :name="'daya_ac['+index+']'" value="" required="" />
+                                            </div>
+                                            {{-- <div class="input-group">
+                                                <!-- <input type="file" name="image[]" class="form-control" accept="image/*" value=""> -->
+                                                <input type="text" :name="'image['+index+']'" v-model="jawaban[index].file" :data-key="index" :id="'image'+index" class="form-control img-input" readonly="" placeholder="Jawaban">
+                                                <div class="input-group-btn">
+                                                    <a :href="'{{ asset('/filemanager/dialog.php?type=1&relative_url=1&akey=PgH8a6M95d5235qsc6Wk2') }}&field_id=image'+index" class="btn btn-block btn-success rfmanager" data-toggle="tooltip" data-placement="top" :id="'btnfile'+index"><i class="fa fa-image fa-fw"></i></a>
+                                                </div>
+                                            </div> --}}
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                             
+                            </div>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br>
+                            <br>
+                            <br>
+                            
+                      {{-- <div class="form-group {{ $errors->has('nmbebanac') ? 'has-error' : ''}}">
                           {!! Form::label('nmbebanac', 'Nama Beban AC', ['class' => 'col-md-4 control-label']) !!}
                           <div class="col-md-6">
                               {!! Form::text('nmbebanac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
@@ -141,18 +197,19 @@
                       </div>
                       <div class="form-group {{ $errors->has('jml_ac') ? 'has-error' : ''}}">
                           {!! Form::label('jml_ac', 'Jumlah AC', ['class' => 'col-md-4 control-label']) !!}
+                          <strong>Pcs</strong>
                           <div class="col-md-6">
                               {!! Form::text('jml_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                               {!! $errors->first('jml_ac', '<p class="help-block">:message</p>') !!}
                           </div>
                       </div>
                       <div class="form-group {{ $errors->has('daya_ac') ? 'has-error' : ''}}">
-                          {!! Form::label('daya_ac', 'Daya AC', ['class' => 'col-md-4 control-label']) !!}
+                          {!! Form::label('daya_ac', 'Daya Total AC', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
                           <div class="col-md-6">
                               {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                               {!! $errors->first('daya_ac', '<p class="help-block">:message</p>') !!}
                           </div>
-                      </div>
+                      </div> --}}
                       </div>
 
                       <div id=step-4>
@@ -164,14 +221,14 @@
                           </div>
                       </div>
                       <div class="form-group {{ $errors->has('jmlbebanlain') ? 'has-error' : ''}}">
-                          {!! Form::label('jmlbebanlain', 'Jumlah Bebanlain', ['class' => 'col-md-4 control-label']) !!}
+                          {!! Form::label('jmlbebanlain', 'Jumlah Bebanlain', ['class' => 'col-md-4 control-label']) !!}<strong>Pcs</strong>
                           <div class="col-md-6">
                               {!! Form::text('jmlbebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                               {!! $errors->first('jmlbebanlain', '<p class="help-block">:message</p>') !!}
                           </div>
                       </div>
                       <div class="form-group {{ $errors->has('dyabebanlain') ? 'has-error' : ''}}">
-                          {!! Form::label('dyabebanlain', 'Daya Bebanlain', ['class' => 'col-md-4 control-label']) !!}
+                          {!! Form::label('dyabebanlain', 'Daya Bebanlain', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
                           <div class="col-md-6">
                               {!! Form::text('dyabebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
                               {!! $errors->first('dyabebanlain', '<p class="help-block">:message</p>') !!}
@@ -180,6 +237,30 @@
 
                       </div>
 
+                      <div id=step-5>
+                        <div class="form-group {{ $errors->has('nm_mesin') ? 'has-error' : ''}}">
+                            {!! Form::label('nm_mesin', 'Nama Mesin', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::text('nm_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                                {!! $errors->first('nm_mesin', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+                        <div class="form-group {{ $errors->has('jml_mesin') ? 'has-error' : ''}}">
+                            {!! Form::label('jml_mesin', 'Jumlah Mesin', ['class' => 'col-md-4 control-label']) !!}<strong>Pcs</strong>
+                            <div class="col-md-6">
+                                {!! Form::text('jml_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                                {!! $errors->first('jml_mesin', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+                        <div class="form-group {{ $errors->has('daya_mesin') ? 'has-error' : ''}}">
+                            {!! Form::label('daya_mesin', 'Daya Mesin', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
+                            <div class="col-md-6">
+                                {!! Form::text('daya_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                                {!! $errors->first('daya_mesin', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+                      </div>
+        
 
 
                     </div>
@@ -204,5 +285,61 @@
 @section('jspage')
     <!-- jQuery Smart Wizard -->
     <script src="{{ asset('plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('plugins/vue/vue.js') }}"></script>
 
+    <script type="text/javascript">
+// function responsive_filemanager_callback(field_id){
+//         var element = jQuery('#'+field_id);
+//         var img=element.val();
+//         var key = element.data('key');
+//         try{
+//             $vapp.jawaban[key].file = img;
+//         } catch(err){            
+//             // parent.$.fancybox.close();
+//         }
+//     }
+
+    $vapp = new Vue({
+        el:'#app',
+        data:{
+            jawaban:[
+                {
+                    teks:'',
+                    gambar:'',
+                }
+            ]
+        },
+        mounted: function(){
+            //this.initFancy();
+        },
+        updated: function(){
+            //this.initFancy();
+        },
+        methods: {
+            addPhoto: function(event) {
+                var jawaban = {
+                    teks:'',
+                    gambar:'',
+                }
+                this.jawaban.splice(event+1,0,jawaban);
+            },
+            remPhoto: function(event) {
+                if(this.jawaban.length > 1)
+                    this.jawaban.splice(event,1)
+            }
+            // initFancy: function(event) {
+            //     $('.rfmanager').fancybox({
+            //         type: 'iframe',
+            //         iframe: {
+            //             css: {
+            //                 width: '880px',
+            //                 height: '570px'
+            //             }
+            //         }
+            //     });
+            // }
+        }
+    });;
+
+</script>
 @endsection

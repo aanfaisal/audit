@@ -17,9 +17,9 @@
     <link href="{{ asset('plugins/nprogress/nprogress.css') }}" rel="stylesheet">
     
     <!-- bootstrap-daterangepicker -->
-    <link href="{{ asset('bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- bootstrap-datetimepicker -->
-    <link href="{{ asset('bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
 
     <!-- jQuery custom content scroller -->
     <link href="{{ asset('plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>

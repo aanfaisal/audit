@@ -14,7 +14,7 @@ class CreateBebanPenerangansTable extends Migration
     {
         Schema::create('beban_penerangans', function (Blueprint $table) {
             $table->increments('beban_id');
-            $table->integer('ruang_id')->unsigned();
+            $table->integer('nm_ruang')->unsigned();
             $table->string('jns_lamp')->nullable();
             $table->string('jml_lamp')->nullable();
             $table->string('daya_lamp')->nullable();
@@ -24,7 +24,7 @@ class CreateBebanPenerangansTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('ruang_id')->references('ruang_id')->on('ruangs');
+            $table->foreign('nm_ruang')->references('ruang_id')->on('ruangs');
             
             });
     }
