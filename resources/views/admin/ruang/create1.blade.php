@@ -1,7 +1,7 @@
 @extends('layouts.admin.main')
 
 @section('title')
-    Buat Data Beban AC (Air Conditioner)
+    Buat Data Ruangan
 @endsection
 
 @section('maincontent')

@@ -15,7 +15,7 @@ class RuangsDetail extends Migration
     {
          Schema::create('ruangs_detail', function (Blueprint $table) {
             $table->increments('detail_id');
-            $table->integer('nm_ruang')->unsigned();
+            $table->integer('ruang_id')->unsigned();
             $table->string('jns_lamp')->nullable();
             $table->string('jml_lamp')->nullable();
             $table->string('daya_lamp')->nullable();
@@ -29,7 +29,7 @@ class RuangsDetail extends Migration
             $table->string('jml_mesin')->nullable();
             $table->string('daya_mesin')->nullable();
 
-            $table->foreign('nm_ruang')->references('ruang_id')->on('ruangs');
+            $table->foreign('ruang_id')->references('ruang_id')->on('ruangs');
 
         });
     }

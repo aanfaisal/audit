@@ -14,7 +14,7 @@ class CreateBebanAcsTable extends Migration
     {
         Schema::create('beban_acs', function (Blueprint $table) {
             $table->increments('bebanac_id');
-            $table->integer('nm_ruang')->unsigned();
+            $table->integer('ruang_id')->unsigned();
             $table->string('jml_ac')->nullable();
             $table->string('daya_ac')->nullable();
             $table->string('tot_pemakaian')->nullable();
@@ -23,7 +23,7 @@ class CreateBebanAcsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('nm_ruang')->references('ruang_id')->on('ruangs');
+            $table->foreign('ruang_id')->references('ruang_id')->on('ruangs');
             });
     }
 

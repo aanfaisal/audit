@@ -93,7 +93,7 @@ class ProfilController extends Controller
     {
         $profil = Profil::findOrFail($id);
 
-        return view('admin.profil.edit', compact('profil'));
+        return view('admin.profil.edit1', compact('profil'));
     }
 
     /**

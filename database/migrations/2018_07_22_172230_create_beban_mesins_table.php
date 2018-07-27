@@ -14,7 +14,7 @@ class CreateBebanMesinsTable extends Migration
     {
         Schema::create('beban_mesins', function (Blueprint $table) {
             $table->increments('bebanmesin_id');
-            $table->integer('nm_ruang')->unsigned();
+            $table->integer('ruang_id')->unsigned();
             $table->string('nm_mesin')->nullable();
             $table->string('daya_mesin')->nullable();
             $table->string('tot_pemakaian')->nullable();
@@ -23,7 +23,7 @@ class CreateBebanMesinsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('nm_ruang')->references('ruang_id')->on('ruangs');
+            $table->foreign('ruang_id')->references('ruang_id')->on('ruangs');
             });
     }
 

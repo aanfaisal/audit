@@ -33,10 +33,10 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::resource('manage/setting', 'Manage\\SettingController');
+    //Route::resource('manage/setting', 'Manage\\SettingController');
    
     Route::resource('manage/profil', 'Manage\\ProfilController', [
-      'except' => ['create', 'show', 'store']
+      'except' => ['index','create', 'show']
     ]);
     
     Route::resource('manage/ruang', 'Manage\\RuangController');
