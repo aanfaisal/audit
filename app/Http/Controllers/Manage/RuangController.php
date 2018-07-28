@@ -66,9 +66,8 @@ class RuangController extends Controller
         
         $requestData = $request->all();
         
-
-        dd($requestData);
-        //Ruang::create($requestData);
+        //dd($requestData);
+        Ruang::create($requestData);
 
         return redirect('manage/ruang')->with('flash_message', 'Ruang added!');
     }
@@ -98,7 +97,8 @@ class RuangController extends Controller
     {
         $ruang = Ruang::findOrFail($id);
 
-        return view('admin.ruang.edit', compact('ruang'));
+        dd($ruang);
+        return view('admin.ruang.edit1', compact('ruang'));
     }
 
     /**

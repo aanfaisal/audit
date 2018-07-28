@@ -14,6 +14,24 @@ class Ruang extends Model
     protected $table = 'ruangs';
 
     /**
+     * Menyimpan ke database dalam bentuk array
+     * 
+     * @var array
+     */
+    protected $casts = [
+        'nmbebanac' => 'array',
+        'jml_ac' => 'array',
+        'daya_ac' => 'array',
+        'jnsbebanlain' => 'array',
+        'jmlbebanlain' => 'array',
+        'dyabebanlain' => 'array',
+        'nm_mesin' => 'array',
+        'jml_mesin' => 'array',
+        'daya_mesin' => 'array',
+    ];
+   
+
+    /**
     * The database primary key value.
     *
     * @var string
