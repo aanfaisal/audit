@@ -9,7 +9,7 @@
         <div class="content">
             <h1>{{ config('app.name', 'Laravel') }}</h1>
             <p class="major">Sistem Audit Energi Listrik Gedung</p>
-            <p class="major">Electrical Energy Audit Applications for Buildings</p>
+            <p class="major">Studi Kasus : Gedung D Universitas Wahid Hasyim Semarang</p>
             
             <ul class="actions vertical">
                 @if (Route::has('login'))

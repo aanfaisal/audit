@@ -33,7 +33,7 @@ class HomeController extends Controller
             ->dimensions(500, 300)
             ->responsive(false)
             ->dateColumn('wktu_pengukuran')
-            ->groupByMonth('2018', true);
+            ->lastByMonth('12', true);
 
         $charti = Charts::database(HitungIke::all(), 'line', 'highcharts')
             ->title(' ')
@@ -44,11 +44,20 @@ class HomeController extends Controller
             ->lastByDay();
             //->groupByMonth('2018', true);
 
+        $chartbulan = Charts::database(HitungIke::all(), 'line', 'highcharts')
+            ->title(' ')
+            ->elementLabel("Hasil Perhitungan IKE")
+            ->dimensions(1000, 300)
+            ->responsive(false)
+            ->dateColumn('wktu_pengukuran')
+            ->lastByDay('30', true);
+            //->groupByMonth('2018', true);
+            
         $t = DB::table('hitung_ikes')->avg('hsil_perhitungan');
         //Table::select('name','surname')->where('id', 1)->get();
         $nama = DB::table('profils')->where('profil_id', 1)->pluck('nama_institusi');
         $gedung = DB::table('profils')->where('profil_id', 1)->pluck('p_gedung');
         //dd($nama);
-        return view('home', ['chart' => $chart, 'charti' => $charti, 'rata2' => $t, 'nama' => $nama, 'gedung' => $gedung ]);
+        return view('home', ['chart' => $chart, 'charti' => $charti, 'rata2' => $t, 'nama' => $nama, 'gedung' => $gedung, 'bulan' => $chartbulan ]);
     }
 }

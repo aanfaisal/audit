@@ -294,14 +294,12 @@
     $vapp = new Vue({
         el:'#app',
         data:{
-            @if ($jawaban)
-            jawaban:JSON.parse('{{ json_encode($jawaban) }}'),
-            @else
-                jawaban:{
-                    text:'',
-                    image:'',
+            jawaban:[
+                {
+                    teks:'',
+                    gambar:'',
                 }
-            @endif
+            ]
         },
         mounted: function(){
             //this.initFancy();

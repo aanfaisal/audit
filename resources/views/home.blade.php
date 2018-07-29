@@ -31,10 +31,24 @@
                     </div>
                   </div>
                  <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="dashboard_graph x_panel">
+                        <div class="row x_title">
+                          <div class="col-md-12">
+                            <h3>Graph IKE 30 Hari Terakhir</h3>
+                          </div>
+                        </div>
+                        <div class="x_content">
+
+                                     {!! $bulan->render() !!}   
+
+                        </div>
+                      </div>
+                    </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
                       <div class="dashboard_graph x_panel">
                         <div class="row x_title">
-                          <div class="col-md-8">
+                          <div class="col-md-12">
                             <h3>Graph IKE 7 Hari Terakhir</h3>
                           </div>
                         </div>
@@ -48,8 +62,8 @@
                     <div class="col-md-6 col-sm-6 col-xs-6">
                       <div class="dashboard_graph x_panel">
                         <div class="row x_title">
-                          <div class="col-md-6">
-                            <h3>Graph IKE Perbulan</h3>
+                          <div class="col-md-12">
+                            <h3>Graph IKE 12 Bulan Terakhir</h3>
                           </div>
                         </div>
                         <div class="x_content">
