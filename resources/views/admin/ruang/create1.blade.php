@@ -144,7 +144,7 @@
                       <div id="app">
                                 <h3>Data AC Ruang</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in beban">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Nama / Merk AC" class="form-control" :name="'nmbebanac['+index+']'" value="" required="" />
@@ -164,7 +164,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="beban.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                       <div id="app2">
                                 <h3>Data Beban Lain di Ruangan</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in beban">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Jenis Beban Lain" class="form-control" :name="'jnsbebanlain['+index+']'" value="" required="" />
@@ -203,7 +203,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="beban.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -214,36 +214,11 @@
                             <br>
                             <br>
                       </div>
-
-                      {{-- <div class="form-group {{ $errors->has('jnsbebanlain') ? 'has-error' : ''}}">
-                          {!! Form::label('jnsbebanlain', 'Jenis Bebanlain', ['class' => 'col-md-4 control-label']) !!}
-                          <div class="col-md-6">
-                              {!! Form::text('jnsbebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                              {!! $errors->first('jnsbebanlain', '<p class="help-block">:message</p>') !!}
-                          </div>
-                      </div>
-                      <div class="form-group {{ $errors->has('jmlbebanlain') ? 'has-error' : ''}}">
-                          {!! Form::label('jmlbebanlain', 'Jumlah Bebanlain', ['class' => 'col-md-4 control-label']) !!}<strong>Pcs</strong>
-                          <div class="col-md-6">
-                              {!! Form::text('jmlbebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                              {!! $errors->first('jmlbebanlain', '<p class="help-block">:message</p>') !!}
-                          </div>
-                      </div>
-                      <div class="form-group {{ $errors->has('dyabebanlain') ? 'has-error' : ''}}">
-                          {!! Form::label('dyabebanlain', 'Daya Bebanlain', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
-                          <div class="col-md-6">
-                              {!! Form::text('dyabebanlain', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                              {!! $errors->first('dyabebanlain', '<p class="help-block">:message</p>') !!}
-                          </div>
-                      </div>
-
-                      </div> --}}
-
                       <div id=step-5>
                         <div id="app3">
                                 <h3>Data Beban Mesin di Ruangan</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in beban">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Nama Mesin" class="form-control" :name="'nm_mesin['+index+']'" value="" required="" />
@@ -263,7 +238,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="beban.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -274,31 +249,7 @@
                             <br>
                             <br>
                       </div>
-                        {{-- <div class="form-group {{ $errors->has('nm_mesin') ? 'has-error' : ''}}">
-                            {!! Form::label('nm_mesin', 'Nama Mesin', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('nm_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                                {!! $errors->first('nm_mesin', '<p class="help-block">:message</p>') !!}
-                            </div>
-                        </div>
-                        <div class="form-group {{ $errors->has('jml_mesin') ? 'has-error' : ''}}">
-                            {!! Form::label('jml_mesin', 'Jumlah Mesin', ['class' => 'col-md-4 control-label']) !!}<strong>Pcs</strong>
-                            <div class="col-md-6">
-                                {!! Form::text('jml_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                                {!! $errors->first('jml_mesin', '<p class="help-block">:message</p>') !!}
-                            </div>
-                        </div>
-                        <div class="form-group {{ $errors->has('daya_mesin') ? 'has-error' : ''}}">
-                            {!! Form::label('daya_mesin', 'Daya Mesin', ['class' => 'col-md-4 control-label']) !!}<strong>Watt</strong>
-                            <div class="col-md-6">
-                                {!! Form::text('daya_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                                {!! $errors->first('daya_mesin', '<p class="help-block">:message</p>') !!}
-                            </div>
-                        </div>
-                      </div>
-         --}}
-
-
+            
                     </div>
                     <!-- End SmartWizard Content -->
 
@@ -328,7 +279,7 @@
     $vapp = new Vue({
         el:'#app',
         data:{
-            jawaban:[
+            beban:[
                 {
                     teks:'',
                     gambar:'',
@@ -343,15 +294,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var beban = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.beban.splice(event+1,0,beban);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.beban.length > 1)
+                    this.beban.splice(event,1)
             }
         }
     });;
@@ -359,7 +310,7 @@
     $vapp2 = new Vue({
         el:'#app2',
         data:{
-            jawaban:[
+            beban:[
                 {
                     teks:'',
                     gambar:'',
@@ -374,15 +325,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var beban = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.beban.splice(event+1,0,beban);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.beban.length > 1)
+                    this.beban.splice(event,1)
             }
         }
     });;
@@ -390,7 +341,7 @@
     $vapp3 = new Vue({
         el:'#app3',
         data:{
-            jawaban:[
+            beban:[
                 {
                     teks:'',
                     gambar:'',
@@ -405,15 +356,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var beban = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.beban.splice(event+1,0,beban);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.beban.length > 1)
+                    this.beban.splice(event,1)
             }
         }
     });;

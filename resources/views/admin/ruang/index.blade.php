@@ -26,7 +26,7 @@
                   <div class="x_content">
             @include('layouts._flash')
                         <a href="{{ url('/manage/ruang/create') }}" class="btn btn-success btn-sm" title="Add New Ruang">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/manage/ruang', 'class' => 'col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search', 'role' => 'search'])  !!}

@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('manage/beban-lain', 'Manage\\BebanLainController');
     Route::resource('manage/user', 'Manage\\UsersController');
 
+    
     Route::get('laporanbebanmesin', 'LaporanController@laporanbebanmesin');
     Route::get('laporanbebanlain', 'LaporanController@laporanbebanlain');
     Route::get('laporanbebanac', 'LaporanController@laporanbebanac');
@@ -54,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('laporanruang', 'LaporanController@laporanruang');
     Route::get('laporandataike', 'LaporanController@laporandataike');
     Route::get('laporandashboard', 'LaporanController@laporandashboard');
+    Route::get('ajaxruang', 'AjaxController@ajaxruang');
 
 
 });

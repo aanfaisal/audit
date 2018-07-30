@@ -99,7 +99,7 @@
                             <span class="step_no">4</span>
                             <span class="step_descr">
                                               Step 4<br />
-                                              <small>Data Beban Lain</small>
+                                              <small>Data ruang Lain</small>
                                           </span>
                           </a>
                         </li>
@@ -157,7 +157,7 @@
                       <div id="app">
                                 <h3>Data AC Ruang</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in ruang">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Nama / Merk AC" class="form-control" :name="'nmbebanac['+index+']'" v-model="nmbebanac[index].text" value="" required="" />
@@ -177,7 +177,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="ruang.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -194,9 +194,9 @@
 
                       <div id=step-4>
                       <div id="app2">
-                                <h3>Data Beban Lain di Ruangan</h3>
+                                <h3>Data ruang Lain di Ruangan</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in ruang">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Jenis Beban Lain" class="form-control" :name="'jnsbebanlain['+index+']'" v-model="jnsbebanlain[index].text" value="" required="" />
@@ -216,7 +216,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="ruang.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -230,9 +230,9 @@
 
                       <div id=step-5>
                         <div id="app3">
-                                <h3>Data Beban Mesin di Ruangan</h3>
+                                <h3>Data ruang Mesin di Ruangan</h3>
                                 
-                                    <div class="row" v-for="(item,index) in jawaban">
+                                    <div class="row" v-for="(item,index) in ruang">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" placeholder="Nama Mesin" class="form-control" :name="'nm_mesin['+index+']'" v-model="nm_mesin[index].text" value="" required="" />
@@ -245,14 +245,14 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <input type="number" placeholder="Total Daya Beban (watt)" class="form-control" :name="'daya_mesin['+index+']'" v-model="daya_mesin[index].text" value="" required="" />
+                                                <input type="number" placeholder="Total Daya ruang (watt)" class="form-control" :name="'daya_mesin['+index+']'" v-model="daya_mesin[index].text" value="" required="" />
                                             </div>
                                            
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <button class="btn btn-success btn-flat" type="button" @click="addPhoto(index)"><i class="fa fa-plus"></i></button>
-                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="jawaban.length > 1"><i class="fa fa-close"></i></button>
+                                                <button class="btn btn-danger btn-flat" type="button" @click="remPhoto(index)"  v-if="ruang.length > 1"><i class="fa fa-close"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -294,12 +294,14 @@
     $vapp = new Vue({
         el:'#app',
         data:{
-            jawaban:[
-                {
-                    teks:'',
-                    gambar:'',
+            @if ($ruang)
+            ruang: JSON.parse('{{ json_encode($ruang->nmbebanac) }}'),
+            @else    
+                ruang:{
+                    text:'',
+                    image:'',
                 }
-            ]
+            @endif
         },
         mounted: function(){
             //this.initFancy();
@@ -309,15 +311,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var ruang = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.ruang.splice(event+1,0,ruang);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.ruang.length > 1)
+                    this.ruang.splice(event,1)
             }
         }
     });;
@@ -325,12 +327,14 @@
     $vapp2 = new Vue({
         el:'#app2',
         data:{
-            jawaban:[
-                {
-                    teks:'',
-                    gambar:'',
+            @if ($ruang)
+            ruang:JSON.parse('{{ json_encode($ruang) }}'),
+            @else    
+                ruang:{
+                    text:'',
+                    image:'',
                 }
-            ]
+            @endif
         },
         mounted: function(){
             //this.initFancy();
@@ -340,15 +344,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var ruang = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.ruang.splice(event+1,0,ruang);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.ruang.length > 1)
+                    this.ruang.splice(event,1)
             }
         }
     });;
@@ -356,12 +360,14 @@
     $vapp3 = new Vue({
         el:'#app3',
         data:{
-            jawaban:[
-                {
-                    teks:'',
-                    gambar:'',
+            @if ($ruang)
+            ruang:JSON.parse('{{ json_encode($ruang) }}'),
+            @else    
+                ruang:{
+                    text:'',
+                    image:'',
                 }
-            ]
+            @endif
         },
         mounted: function(){
             //this.initFancy();
@@ -371,15 +377,15 @@
         },
         methods: {
             addPhoto: function(event) {
-                var jawaban = {
+                var ruang = {
                     teks:'',
                     gambar:'',
                 }
-                this.jawaban.splice(event+1,0,jawaban);
+                this.ruang.splice(event+1,0,ruang);
             },
             remPhoto: function(event) {
-                if(this.jawaban.length > 1)
-                    this.jawaban.splice(event,1)
+                if(this.ruang.length > 1)
+                    this.ruang.splice(event,1)
             }
         }
     });;

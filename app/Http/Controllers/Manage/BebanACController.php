@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+use App\Ruang;
 use App\BebanAc;
 use Illuminate\Http\Request;
 
@@ -42,9 +44,17 @@ class BebanAcController extends Controller
      */
     public function create()
     {
-        return view('admin.beban-ac.create');
+        $id = '12';
+        $nm_ruang = DB::table('ruangs')->pluck('nm_ruang', 'ruang_id');
+        return view('admin.beban-ac.create')->with('nm_ruang', $nm_ruang);
+
     }
 
+    public function ajaxruang(Request $request)
+    {
+        $ruang = Ruang::findOrFail($request->id);
+        return response()->json(['data' => $ruang]);
+    }
     /**
      * Store a newly created resource in storage.
      *
