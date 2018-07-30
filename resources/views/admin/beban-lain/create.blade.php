@@ -54,5 +54,33 @@
 @endsection
 
 @section('jspage')
+ <!-- DateJS -->
+    <script src="{{ asset('plugins/DateJS/build/date.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('plugins/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    
+    <script type="text/javascript">
+        
 
+    $("select").change(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ url('ajaxruang') }}",
+            type: "POST",
+            data: {id: $("select :selected").val()}, //send data to controller
+                success:function(data){
+                    console.log(data);
+                    $("#daya_ac").val(data["daya_ac"]);
+                    $("#jml_ac").val(data["jml_ac"]);
+                },error:function(){ 
+                    console.log("error!!!!");
+            }
+            });
+        $.ajax();
+    });
+
+    </script>
 @endsection

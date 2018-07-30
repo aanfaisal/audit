@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('ajaxruang', 'AjaxController@ajaxruang');
+
 Route::group(['middleware' => ['web']], function () {
     // Authentication Routing...
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -55,7 +57,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('laporanruang', 'LaporanController@laporanruang');
     Route::get('laporandataike', 'LaporanController@laporandataike');
     Route::get('laporandashboard', 'LaporanController@laporandashboard');
-    Route::get('ajaxruang', 'AjaxController@ajaxruang');
 
 
 });

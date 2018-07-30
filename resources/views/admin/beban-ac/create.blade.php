@@ -49,14 +49,16 @@
                 <div class="form-group {{ $errors->has('jml_ac') ? 'has-error' : ''}}">
                     <label for="jml_ac" class="col-md-4 control-label">Jumlah AC</label>
                     <div class="col-md-6">
-                        {!! Form::text('jml_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                        <input class="form-control" id="jml_ac" name="jml_ac" value="" type="text">
+                        {{-- {!! Form::text('jml_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
                         {!! $errors->first('jml_ac', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
                 <div class="form-group {{ $errors->has('daya_ac') ? 'has-error' : ''}}">
                     <label for="daya_ac" class="col-md-4 control-label">Daya AC</label>
                     <div class="col-md-6">
-                        {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                        <input class="form-control" id="daya_ac" name="daya_ac" value="" type="text">
+ {{--                        {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
                         {!! $errors->first('daya_ac', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
@@ -106,17 +108,22 @@
 
     $("select").change(function() {
         $.ajaxSetup({
-           headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-           url: "{{ url('ajaxruang') }}",
-           type: "PATCH",
-           data: {id: $( "#nm_ruang :selected" ).val()}, //send data to controller
-           success: function(result){
-               console.log(data);
-               //check the console then put the data where you want
-           }
-        });
-    $.ajax();
-});
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ url('ajaxruang') }}",
+            type: "POST",
+            data: {id: $("select :selected").val()}, //send data to controller
+                success:function(data){
+                    console.log(data);
+                    $("#daya_ac").val(data["daya_ac"]);
+                    $("#jml_ac").val(data["jml_ac"]);
+                },error:function(){ 
+                    console.log("error!!!!");
+            }
+            });
+        $.ajax();
+    });
 
     </script>
 @endsection

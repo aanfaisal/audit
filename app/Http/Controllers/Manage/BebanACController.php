@@ -55,6 +55,7 @@ class BebanAcController extends Controller
         $ruang = Ruang::findOrFail($request->id);
         return response()->json(['data' => $ruang]);
     }
+    
     /**
      * Store a newly created resource in storage.
      *
