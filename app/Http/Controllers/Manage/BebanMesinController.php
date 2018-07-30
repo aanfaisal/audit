@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+use Session;
+use App\Ruang;
 use App\BebanMesin;
 use Illuminate\Http\Request;
 
@@ -59,7 +62,12 @@ class BebanMesinController extends Controller
         
         BebanMesin::create($requestData);
 
-        return redirect('manage/beban-mesin')->with('flash_message', 'BebanMesin added!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data Beban Lain" 
+        ]);
+
+        return redirect('manage/beban-mesin');
     }
 
     /**
@@ -106,7 +114,12 @@ class BebanMesinController extends Controller
         $bebanmesin = BebanMesin::findOrFail($id);
         $bebanmesin->update($requestData);
 
-        return redirect('manage/beban-mesin')->with('flash_message', 'BebanMesin updated!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Beban Mesin" 
+        ]);
+
+        return redirect('manage/beban-mesin');
     }
 
     /**
@@ -120,6 +133,11 @@ class BebanMesinController extends Controller
     {
         BebanMesin::destroy($id);
 
-        return redirect('manage/beban-mesin')->with('flash_message', 'BebanMesin deleted!');
+         Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Beban Mesin",
+        ]);
+
+        return redirect('manage/beban-mesin');
     }
 }

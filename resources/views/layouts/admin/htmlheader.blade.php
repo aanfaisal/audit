@@ -19,7 +19,7 @@
     <!-- bootstrap-daterangepicker -->
     <link href="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- bootstrap-datetimepicker -->
-    <link href="{{ asset('plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
 
     <!-- jQuery custom content scroller -->
     <link href="{{ asset('plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>

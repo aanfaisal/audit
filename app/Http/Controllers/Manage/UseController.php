@@ -7,6 +7,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Session;
 
+use DB;
+use App\Ruang;
+
 class UseController extends Controller {
 	/**
 	 * Create a new controller instance.
@@ -75,7 +78,7 @@ class UseController extends Controller {
 
 		Session::flash("flash_notification", [
 			"level" => "success",
-			"message" => "Berhasil menambah Use ",
+			"message" => "Berhasil menambah User ",
 		]);
 		return redirect('use');
 	}
@@ -123,7 +126,7 @@ class UseController extends Controller {
 
 		Session::flash("flash_notification", [
 			"level" => "success",
-			"message" => "Berhasil mengupdate Use ",
+			"message" => "Berhasil mengupdate User ",
 		]);
 
 		return redirect('use');
@@ -141,7 +144,7 @@ class UseController extends Controller {
 
 		Session::flash("flash_notification", [
 			"level" => "success",
-			"message" => "Berhasil menghapus Use ",
+			"message" => "Berhasil menghapus User ",
 		]);
 
 		return redirect('use');

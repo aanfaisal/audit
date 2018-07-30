@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB;
+use Session;
 use App\Ruang;
 use App\BebanAc;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class BebanAcController extends Controller
     {
         $id = '12';
         $nm_ruang = DB::table('ruangs')->pluck('nm_ruang', 'ruang_id');
-        return view('admin.beban-ac.create')->with('nm_ruang', $nm_ruang);
+        return view('admin.beban-ac.create1')->with('nm_ruang', $nm_ruang);
 
     }
 
@@ -68,9 +69,26 @@ class BebanAcController extends Controller
         
         $requestData = $request->all();
         
-        BebanAc::create($requestData);
+        $BebanAc = new BebanAc;
 
-        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc added!');
+        $dayatotal = $request->daya_ac * $request->jml_ac * $request->tot_pemakaian / 1000;
+        
+        $BebanAc->ruang_id =$request->ruang_id;
+        $BebanAc->jml_ac = $request->jml_ac;
+        $BebanAc->daya_ac =$request->daya_ac;
+        $BebanAc->tot_pemakaian = $request->tot_pemakaian;
+        $BebanAc->wktu_pengukuran = $request->wktu_pengukuran;
+        $BebanAc->tot_dayaac = $dayatotal;
+        
+        $BebanAc->save();
+
+//        BebanAc::create($requestData);
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data AC" 
+        ]);
+
+        return redirect('manage/beban-ac');
     }
 
     /**
@@ -117,7 +135,12 @@ class BebanAcController extends Controller
         $bebanac = BebanAc::findOrFail($id);
         $bebanac->update($requestData);
 
-        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc updated!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data AC" 
+        ]);
+
+        return redirect('manage/beban-ac');
     }
 
     /**
@@ -131,6 +154,11 @@ class BebanAcController extends Controller
     {
         BebanAc::destroy($id);
 
-        return redirect('manage/beban-ac')->with('flash_message', 'BebanAc deleted!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Beban AC",
+        ]);
+
+        return redirect('manage/beban-ac');
     }
 }

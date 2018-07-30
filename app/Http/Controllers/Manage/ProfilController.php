@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+use Session;
+use App\Ruang;
 use App\Profil;
 use Illuminate\Http\Request;
 
@@ -65,7 +68,12 @@ class ProfilController extends Controller
         
         Profil::create($requestData);
 
-        return redirect('manage/profil/1/edit')->with('flash_message', 'Profil added!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data Profil Gedung" 
+        ]);
+
+        return redirect('manage/profil/1/edit');
     }
 
     /**
@@ -112,7 +120,12 @@ class ProfilController extends Controller
         $profil = Profil::findOrFail($id);
         $profil->update($requestData);
 
-        return redirect('manage/profil/1/edit')->with('flash_message', 'Profil updated!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Profil Gedung" 
+        ]);
+
+        return redirect('manage/profil/1/edit');
     }
 
     /**
@@ -126,6 +139,11 @@ class ProfilController extends Controller
     {
         Profil::destroy($id);
 
-        return redirect('manage/profil')->with('flash_message', 'Profil deleted!');
+         Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Profil",
+        ]);
+
+        return redirect('manage/profil');
     }
 }

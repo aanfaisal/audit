@@ -25,7 +25,7 @@ class BebanAc extends Model
      *
      * @var array
      */
-    protected $fillable = ['nm_ruang', 'jml_ac', 'daya_ac', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayaac'];
+    protected $fillable = ['ruang_id', 'jml_ac', 'daya_ac', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayaac'];
 
     public function ruang()
     {

@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
+use DB;
+use Session;
+use App\Ruang;
 use App\BebanLain;
 use Illuminate\Http\Request;
 
@@ -60,7 +64,11 @@ class BebanLainController extends Controller
         
         BebanLain::create($requestData);
 
-        return redirect('manage/beban-lain')->with('flash_message', 'BebanLain added!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data Beban Lain" 
+        ]);
+        return redirect('manage/beban-lain');
     }
 
     /**
@@ -107,7 +115,12 @@ class BebanLainController extends Controller
         $bebanlain = BebanLain::findOrFail($id);
         $bebanlain->update($requestData);
 
-        return redirect('manage/beban-lain')->with('flash_message', 'BebanLain updated!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Beban Lain" 
+        ]);
+
+        return redirect('manage/beban-lain');
     }
 
     /**
@@ -121,6 +134,11 @@ class BebanLainController extends Controller
     {
         BebanLain::destroy($id);
 
-        return redirect('manage/beban-lain')->with('flash_message', 'BebanLain deleted!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Beban Lain",
+        ]);
+
+        return redirect('manage/beban-lain');
     }
 }

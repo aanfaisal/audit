@@ -25,7 +25,7 @@ class BebanPenerangan extends Model
      *
      * @var array
      */
-    protected $fillable = ['nm_ruang', 'jns_lamp', 'jml_lamp', 'daya_lamp', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayapen'];
+    protected $fillable = ['ruang_id', 'jns_lamp', 'jml_lamp', 'daya_lamp', 'tot_pemakaian', 'wktu_pengukuran', 'tot_dayapen'];
 
     public function ruang()
     {

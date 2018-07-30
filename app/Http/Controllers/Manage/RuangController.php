@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+use Session;
+use App\Profil;
 use App\Ruang;
 use Illuminate\Http\Request;
 
@@ -69,7 +72,12 @@ class RuangController extends Controller
         //dd($requestData);
         Ruang::create($requestData);
 
-        return redirect('manage/ruang')->with('flash_message', 'Ruang added!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data Ruang Gedung" 
+        ]);
+
+        return redirect('manage/ruang');
     }
 
     /**
@@ -116,8 +124,12 @@ class RuangController extends Controller
         
         $ruang = Ruang::findOrFail($id);
         $ruang->update($requestData);
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Ruang Gedung" 
+        ]);
 
-        return redirect('manage/ruang')->with('flash_message', 'Ruang updated!');
+        return redirect('manage/ruang');
     }
 
     /**
@@ -131,6 +143,11 @@ class RuangController extends Controller
     {
         Ruang::destroy($id);
 
-        return redirect('manage/ruang')->with('flash_message', 'Ruang deleted!');
+         Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Ruang",
+        ]);
+
+        return redirect('manage/ruang');
     }
 }

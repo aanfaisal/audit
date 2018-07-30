@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+use Session;
+use App\Ruang;
 use App\BebanPenerangan;
 use Illuminate\Http\Request;
 
@@ -60,7 +63,12 @@ class BebanPeneranganController extends Controller
         
         BebanPenerangan::create($requestData);
 
-        return redirect('manage/beban-penerangan')->with('flash_message', 'BebanPenerangan added!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menyimpan Data Beban Penerangan" 
+        ]);
+
+        return redirect('manage/beban-penerangan');
     }
 
     /**
@@ -107,7 +115,12 @@ class BebanPeneranganController extends Controller
         $bebanpenerangan = BebanPenerangan::findOrFail($id);
         $bebanpenerangan->update($requestData);
 
-        return redirect('manage/beban-penerangan')->with('flash_message', 'BebanPenerangan updated!');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Mengupdate Data Beban Penerangan" 
+        ]);
+
+        return redirect('manage/beban-penerangan');
     }
 
     /**
@@ -121,6 +134,11 @@ class BebanPeneranganController extends Controller
     {
         BebanPenerangan::destroy($id);
 
-        return redirect('manage/beban-penerangan')->with('flash_message', 'BebanPenerangan deleted!');
+         Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil Menghapus Data Beban Penerangan",
+        ]);
+
+        return redirect('manage/beban-penerangan');
     }
 }

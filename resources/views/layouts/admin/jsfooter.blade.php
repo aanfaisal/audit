@@ -1,5 +1,7 @@
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/dist/jquery.min.js') }}"></script>
+<!-- Moment -->
+<script src="{{ asset('plugins/moment/min/moment.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- FastClick -->
@@ -8,6 +10,14 @@
 <script src="{{ asset('plugins/nprogress/nprogress.js') }}"></script>
 <!-- jQuery custom content scroller -->
 <script src="{{ asset('plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<!-- DateJS -->
+<script src="{{ asset('plugins/DateJS/build/date.js') }}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<!-- bootstrap-datetimepicker -->
+<script src="{{ asset('plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+
+
 @yield('jspage')
 
 <script type="text/javascript">
@@ -33,4 +43,4 @@ function toggleFullScreen() {
 }
 </script>
 <!-- Custom Theme Scripts -->
-<script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="{{ asset('js/custom1.min.js') }}"></script>

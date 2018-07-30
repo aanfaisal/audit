@@ -58,7 +58,7 @@
                     <label for="daya_ac" class="col-md-4 control-label">Daya AC</label>
                     <div class="col-md-6">
                         <input class="form-control" id="daya_ac" name="daya_ac" value="" type="text">
- {{--                        {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
+                        {{-- {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
                         {!! $errors->first('daya_ac', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
