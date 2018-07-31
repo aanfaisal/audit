@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-
 use DB;
 use Session;
 use App\Ruang;
