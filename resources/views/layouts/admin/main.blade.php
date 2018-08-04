@@ -2,7 +2,7 @@
 <html lang="en">
   @include('layouts.admin.htmlheader')
 
-  <body class="nav-md footer_fixed">
+  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
           @include('layouts.admin.sidebar')
