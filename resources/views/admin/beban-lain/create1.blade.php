@@ -48,7 +48,7 @@
                             </ul>
                         @endif
 
-                    {!! Form::open(['url' => '/manage/beban-ac', 'class' => 'form-horizontal', 'files' => true]) !!}
+                    {!! Form::open(['url' => '/manage/beban-lain', 'class' => 'form-horizontal', 'files' => true]) !!}
                     <!-- Smart Wizard -->
                     <p></p>
                     <div id="wizard" class="form_wizard wizard_horizontal">

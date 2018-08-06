@@ -45,7 +45,8 @@ class BebanMesinController extends Controller
      */
     public function create()
     {
-        return view('admin.beban-mesin.create');
+        $nm_ruang = DB::table('ruangs')->pluck('nm_ruang', 'ruang_id');
+        return view('admin.beban-mesin.create1')->with('nm_ruang', $nm_ruang);
     }
 
     /**
