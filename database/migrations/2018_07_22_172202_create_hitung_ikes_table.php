@@ -14,7 +14,7 @@ class CreateHitungIkesTable extends Migration
     {
         Schema::create('hitung_ikes', function (Blueprint $table) {
             $table->increments('ike_id');
-            $table->dateTime('wktu_pengukuran')->nullable();
+            $table->date('wktu_pengukuran')->nullable();
             $table->string('hsil_perhitungan')->nullable();
             $table->timestamps();
             });
