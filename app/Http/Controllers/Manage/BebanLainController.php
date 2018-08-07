@@ -79,6 +79,21 @@ class BebanLainController extends Controller
         
         $BebanLain->save();
 
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
+
+        
+        if(!$cek)
+        {
+                $hasil = "12.5";
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+            
+
+        }
+        
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Menyimpan Data Beban Lain" 

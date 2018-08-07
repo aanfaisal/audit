@@ -123,7 +123,7 @@
                         </span>
                     </div>
                       
-                     {{--  {!! Form::input('datetime-local', 'wktu_pengukuran', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
+                     
                       {!! $errors->first('wktu_pengukuran', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -158,7 +158,7 @@
   $(document).ready(function() //model function jquery
     {
       $('#datetimepicker1').datetimepicker({
-          format: 'YYYY-MM-DD HH:mm'
+          format: 'YYYY-MM-DD'
       });
 
       $("#nm_ruang").autocomplete({

@@ -79,7 +79,7 @@
                                         <td>{{ $item->nm_mesin }}</td>
                                         <td>{{ $item->daya_mesin }}</td>
                                         <td class="text-center">{{ $item->tot_pemakaian }}</td>
-                                        <td>{{ date('D, d/m/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
+                                        <td>{{ date('D, d/m/Y', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id) }}" title="View BebanMesin"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-mesin/' . $item->bebanmesin_id . '/edit') }}" title="Edit BebanMesin"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

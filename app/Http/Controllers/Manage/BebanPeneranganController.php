@@ -6,6 +6,9 @@ use Session;
 use DB;
 use App\Ruang;
 use App\BebanPenerangan;
+use App\HitungIke;
+
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -81,6 +84,21 @@ class BebanPeneranganController extends Controller
         $BebanPen->save();
 
 
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
+
+     
+        if(!$cek)
+        {
+                $hasil = "12.5";
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+            
+        }
+
+        
 		Session::flash("flash_notification", [
 			"level" => "success",
 			"message" => "Berhasil Menyimpan Data Beban Penerangan",

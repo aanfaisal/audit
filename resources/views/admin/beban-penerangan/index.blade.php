@@ -81,7 +81,7 @@
                                         <td>{{ $item->jml_lamp }}</td>
                                         <td>{{ $item->daya_lamp }}</td>
                                         <td class="text-center">{{ $item->tot_pemakaian }}</td>
-                                        <td>{{ date('D, m/d/Y H:i', strtotime($item->wktu_pengukuran)) }}</td>
+                                        <td>{{ date('D, m/d/Y', strtotime($item->wktu_pengukuran)) }}</td>
                                         <td>
                                             <a href="{{ url('/manage/beban-penerangan/' . $item->beban_id) }}" title="View BebanPenerangan"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Lihat</button></a>
                                             <a href="{{ url('/manage/beban-penerangan/' . $item->beban_id . '/edit') }}" title="Edit BebanPenerangan"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

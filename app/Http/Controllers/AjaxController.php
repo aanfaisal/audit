@@ -59,16 +59,17 @@ class AjaxController extends Controller
                     'jml_ac'        =>collect($query->jml_ac)->sum(),
                     'daya_ac'       =>collect($query->daya_ac)->sum(),
                     //'jnsbebanlain'  =>$query->jnsbebanlain,
-                    'jns_beban'     =>collect($query->jnsbebanlain)->shift(),
+                    'jns_beban'     =>collect($query->jnsbebanlain)->first(),
                     //'jmlbebanlain'  =>$query->jmlbebanlain,
                     'jml_beban'     =>collect($query->jmlbebanlain)->sum(),
                     //'dyabebanlain'  =>$query->dyabebanlain,
                     'daya_beban'    =>collect($query->dyabebanlain)->sum(),
-                    'nm_mesin'      =>$query->nm_mesin,
+                    //'nm_mesin'      => $query->nm_mesin,
+                    'nm_mesin'      =>collect($query->nm_mesin)->first(),
                     //'jml_mesin'     =>$query->jml_mesin,
-                    'jml_mesin'     => collect($query->jml_mesin)->sum(),
+                    'jml_mesin'     =>collect($query->jml_mesin)->sum(),
                     //'daya_mesin'    =>$query->daya_mesin,
-                    'daya_mesin'    => collect($query->daya_mesin)->sum(),
+                    'daya_mesin'    =>collect($query->daya_mesin)->sum(),
                    
                 ];
         }

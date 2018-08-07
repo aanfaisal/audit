@@ -73,27 +73,40 @@
                         </li>
                        
                       </ul>
-                      <div id="step-1">
+              <div id="step-1">
               <div class="form-group {{ $errors->has('nm_ruang') ? 'has-error' : ''}}">
                   <label for="ruang_id" class="col-md-4 control-label">Nama Ruang</label>
                   <div class="col-md-6">
-                      {!! Form::select('ruang_id', $nm_ruang,null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      {!! Form::hidden('ruang_id', null, array('id' => 'ruang_id')) !!}
+                      {!! Form::text('nm_ruang', null, array('class' => 'form-control form-filter input-sm ', 'id' => 'nm_ruang')) !!}
+
                       {!! $errors->first('ruang_id', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
-                      </div>
-                      <div id="step-2">
+              </div>
+
+              <div id="step-2">
               <div class="form-group {{ $errors->has('nm_mesin') ? 'has-error' : ''}}">
                   {!! Form::label('nm_mesin', 'Nama Mesin', ['class' => 'col-md-4 control-label']) !!}
                   <div class="col-md-6">
-                      {!! Form::text('nm_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      {!! Form::text('nm_mesin', null, array('class' => 'form-control form-filter input-sm', 'id' => 'nm_mesin')) !!}
+
                       {!! $errors->first('nm_mesin', '<p class="help-block">:message</p>') !!}
+                  </div>
+              </div>
+              <div class="form-group {{ $errors->has('jml_mesin') ? 'has-error' : ''}}">
+                  {!! Form::label('jml_mesin', 'Jumlah Mesin', ['class' => 'col-md-4 control-label']) !!}
+                  <div class="col-md-6">
+                      {!! Form::text('jml_mesin', null, array('class' => 'form-control form-filter input-sm', 'id' => 'jml_mesin')) !!}
+
+                      {!! $errors->first('jml_mesin', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
               <div class="form-group {{ $errors->has('daya_mesin') ? 'has-error' : ''}}">
                   {!! Form::label('daya_mesin', 'Daya Mesin', ['class' => 'col-md-4 control-label']) !!}
                   <div class="col-md-6">
-                      {!! Form::text('daya_mesin', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      {!! Form::text('daya_mesin', null, array('class' => 'form-control form-filter input-sm', 'id' => 'daya_mesin')) !!}
+                      
                       {!! $errors->first('daya_mesin', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -117,11 +130,12 @@
                         </span>
                     </div>
                       
-                     {{--  {!! Form::input('datetime-local', 'wktu_pengukuran', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
+                     
                       {!! $errors->first('wktu_pengukuran', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
-                      </div>
+            
+            </div>
 
                     </div>
                     <!-- End SmartWizard Content -->
@@ -144,33 +158,52 @@
 
     <!-- jQuery Smart Wizard -->
     <script src="{{ asset('plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
-    
+    <!-- jQuery UI-->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.js') }}"></script>
+
     <script type="text/javascript">
         
-    $(function () {
+  $(document).ready(function() //model function jquery
+    {
         $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm'
+            format: 'YYYY-MM-DD'
+        });
+    
+
+        $("#nm_ruang").autocomplete({
+            source    : "{{ url('ajaxruang') }}",
+            autoFocus   : true,
+            minLength : 1,
+            select: function( event, ui ) 
+              {
+                var itemId = event.target.id;
+                $('#nm_ruang').val(ui.item.value); //harus value -> dr JqueryUi 
+                $('#ruang_id').val(ui.item.ruang_id);
+                $('#nm_mesin').val(ui.item.nm_mesin);
+                $('#jml_mesin').val(ui.item.jml_mesin);
+                $('#daya_mesin').val(ui.item.daya_mesin);
+                
+              }
+        });
+
+        $("select").change(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ url('ajaxruang') }}",
+                type: "POST",
+                data: {id: $("select :selected").val()}, //send data to controller
+                    success:function(data){
+                        console.log(data);
+                        $("#daya_ac").val(data["daya_ac"]);
+                        $("#jml_ac").val(data["jml_ac"]);
+                    },error:function(){ 
+                        console.log("error!!!!");
+                }
+                });
+            $.ajax();
         });
     });
-
-    $("select").change(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{ url('ajaxruang') }}",
-            type: "POST",
-            data: {id: $("select :selected").val()}, //send data to controller
-                success:function(data){
-                    console.log(data);
-                    $("#daya_ac").val(data["daya_ac"]);
-                    $("#jml_ac").val(data["jml_ac"]);
-                },error:function(){ 
-                    console.log("error!!!!");
-            }
-            });
-        $.ajax();
-    });
-
     </script>
 @endsection

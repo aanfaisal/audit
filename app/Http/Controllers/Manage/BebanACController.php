@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 use DB;
 use Session;
 use App\Ruang;
 use App\BebanAc;
+use App\HitungIke;
+
 use Illuminate\Http\Request;
 
 class BebanAcController extends Controller
@@ -45,7 +48,6 @@ class BebanAcController extends Controller
      */
     public function create()
     {
-        $id = '12';
         $nm_ruang = DB::table('ruangs')->pluck('nm_ruang', 'ruang_id');
         return view('admin.beban-ac.create1')->with('nm_ruang', $nm_ruang);
 
@@ -68,7 +70,8 @@ class BebanAcController extends Controller
     {
         
         $requestData = $request->all();
-        
+        $waktu = $request->wktu_pengukuran;
+
         $BebanAc = new BebanAc;
 
         $dayatotal = $request->daya_ac * $request->jml_ac * $request->tot_pemakaian / 1000;
@@ -81,6 +84,23 @@ class BebanAcController extends Controller
         $BebanAc->tot_dayaac = $dayatotal;
         
         $BebanAc->save();
+
+
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
+
+        
+        if(!$cek)
+        {
+                $hasil = "12.5";
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+            
+
+        }
+
 
 //        BebanAc::create($requestData);
         Session::flash("flash_notification", [

@@ -158,7 +158,7 @@
   $(document).ready(function() //model function jquery
   {
         $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm'
+            format: 'YYYY-MM-DD '
         });
         
         $("#nm_ruang").autocomplete({

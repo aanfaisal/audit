@@ -61,8 +61,35 @@ class BebanMesinController extends Controller
         
         $requestData = $request->all();
         
-        BebanMesin::create($requestData);
+        //BebanMesin::create($requestData);
+        dd($requestData);
 
+        $BebanMesin = new BebanMesin;
+
+        $dayatotal = $request->daya_mesin * $request->jml_mesin * $request->tot_pemakaian / 1000;
+        
+        $BebanMesin->ruang_id =$request->ruang_id;
+        $BebanMesin->nm_mesin = $request->nm_mesin;
+        $BebanMesin->daya_mesin =$request->daya_mesin;
+        $BebanMesin->tot_pemakaian = $request->tot_pemakaian;
+        $BebanMesin->wktu_pengukuran = $request->wktu_pengukuran;
+        $BebanMesin->tot_dayamesin = $dayatotal;
+        
+        $BebanMesin->save();
+
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
+
+        
+        if(!$cek)
+        {
+                $hasil = "12.5";
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+        }
+        
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Menyimpan Data Beban Lain" 
