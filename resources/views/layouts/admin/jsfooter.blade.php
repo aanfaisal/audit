@@ -41,6 +41,8 @@ function toggleFullScreen() {
     }  
   }  
 }
+$('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
 </script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('js/custom1.min.js') }}"></script>

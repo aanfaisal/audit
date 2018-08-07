@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input; 
+use Illuminate\Support\Facades\DB;
 
-use DB;
 use Response;
 use App\Ruang;
 use App\BebanAc;
@@ -36,34 +37,40 @@ class AjaxController extends Controller
         $results = array();
 
         // dengan ES
-        $queries = Ruang::search($term)->get();
         
 
-        // tanpa ES 
-        // $queries = Ruang::where('nma_ruang', 'LIKE', '%'.$term.'%')
-        //         ->orWhere('id', 'LIKE', '%'.$term.'%')
-        //         ->get();   
+        //tanpa ES 
+        $queries = Ruang::where('nm_ruang', 'LIKE', '%'.$term.'%')
+                ->orWhere('ruang_id', 'LIKE', '%'.$term.'%')
+                ->get();   
         
 
-        foreach ($queries as $query)
+    foreach ($queries as $query)
         {          
             $results[] = [
-                            'ruang_id'      =>$query->ruang_id,  
-                            'value'         =>$query->nm_ruang, //harus "value" -> jQueryUi                          
-                            'luas_ruang'    =>$query->luas_ruang,
-                            'jns_lamp'      =>$query->jns_lamp,
-                            'jml_lamp'      =>$query->jml_lamp,
-                            'daya_lamp'     =>$query->daya_lamp,
-                            'nmbebanac'     =>$query->nmbebanac,
-                            'jml_ac'        =>$query->jml_ac,
-                            'jnsbebanlain'  =>$query->jnsbebanlain,
-                            'jmlbebanlain'  =>$query->jmlbebanlain,
-                            'dyabebanlain'  =>$query->dyabebanlain,
-                            'nm_mesin'      =>$query->nm_mesin,
-                            'jml_mesin'     =>$query->jml_mesin,
-                            'daya_mesin'    =>$query->daya_mesin,
-                           
-                         ];
+                    'ruang_id'      =>$query->ruang_id,  
+                    'value'         =>$query->nm_ruang, //harus "value" -> jQueryUi                          
+                    'luas_ruang'    =>$query->luas_ruang,
+                    'jns_lamp'      =>$query->jns_lamp,
+                    'jml_lamp'      =>$query->jml_lamp,
+                    'daya_lamp'     =>$query->daya_lamp,
+                    'nmbebanac'     =>$query->nmbebanac,
+                    //'jml_ac'        =>$query->jml_ac,
+                    'jml_ac'        =>collect($query->jml_ac)->sum(),
+                    'daya_ac'       =>collect($query->daya_ac)->sum(),
+                    //'jnsbebanlain'  =>$query->jnsbebanlain,
+                    'jns_beban'     =>collect($query->jnsbebanlain)->shift(),
+                    //'jmlbebanlain'  =>$query->jmlbebanlain,
+                    'jml_beban'     =>collect($query->jmlbebanlain)->sum(),
+                    //'dyabebanlain'  =>$query->dyabebanlain,
+                    'daya_beban'    =>collect($query->dyabebanlain)->sum(),
+                    'nm_mesin'      =>$query->nm_mesin,
+                    //'jml_mesin'     =>$query->jml_mesin,
+                    'jml_mesin'     => collect($query->jml_mesin)->sum(),
+                    //'daya_mesin'    =>$query->daya_mesin,
+                    'daya_mesin'    => collect($query->daya_mesin)->sum(),
+                   
+                ];
         }
 
         return Response::json($results);

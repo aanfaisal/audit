@@ -73,34 +73,33 @@
                         </li>
                        
                       </ul>
+                      <br>
                       <div id="step-1">
               <div class="form-group {{ $errors->has('nm_ruang') ? 'has-error' : ''}}">
                   <label for="ruang_id" class="col-md-4 control-label">Nama Ruang</label>
                   <div class="col-md-6">
-                      {!! Form::select('ruang_id', $nm_ruang,null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      {!! Form::hidden('ruang_id', null, array('id' => 'ruang_id')) !!}
+                      {!! Form::text('nm_ruang', null, array('class' => 'form-control form-filter input-sm ', 'id' => 'nm_ruang')) !!}
+                      
                       {!! $errors->first('ruang_id', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
                       </div>
                       <div id="step-2">
-              <div class="form-group {{ $errors->has('jns_beban') ? 'has-error' : ''}}">
-                  {!! Form::label('jns_beban', 'Jenis Beban', ['class' => 'col-md-4 control-label']) !!}
-                  <div class="col-md-6">
-                      {!! Form::text('jns_beban', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-                      {!! $errors->first('jns_beban', '<p class="help-block">:message</p>') !!}
-                  </div>
-              </div>
+              
               <div class="form-group {{ $errors->has('jml_beban') ? 'has-error' : ''}}">
                   {!! Form::label('jml_beban', 'Jumlah Beban', ['class' => 'col-md-4 control-label']) !!}
                   <div class="col-md-6">
-                      {!! Form::text('jml_beban', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      
+                      {!! Form::text('jml_beban', null, array('class' => 'form-control form-filter input-sm', 'id' => 'jml_beban')) !!}
                       {!! $errors->first('jml_beban', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
               <div class="form-group {{ $errors->has('daya_beban') ? 'has-error' : ''}}">
                   {!! Form::label('daya_beban', 'Daya Beban', ['class' => 'col-md-4 control-label']) !!}
                   <div class="col-md-6">
-                      {!! Form::text('daya_beban', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                    
+                      {!! Form::text('daya_beban', null, array('class' => 'form-control form-filter input-sm', 'id' => 'daya_beban')) !!}
                       {!! $errors->first('daya_beban', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -151,33 +150,51 @@
 
     <!-- jQuery Smart Wizard -->
     <script src="{{ asset('plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
-    
+    <!-- jQuery UI-->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.js') }}"></script>
+
     <script type="text/javascript">
         
-    $(function () {
-        $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm'
-        });
-    });
+  $(document).ready(function() //model function jquery
+    {
+      $('#datetimepicker1').datetimepicker({
+          format: 'YYYY-MM-DD HH:mm'
+      });
 
-    $("select").change(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{ url('ajaxruang') }}",
-            type: "POST",
-            data: {id: $("select :selected").val()}, //send data to controller
-                success:function(data){
-                    console.log(data);
-                    $("#daya_ac").val(data["daya_ac"]);
-                    $("#jml_ac").val(data["jml_ac"]);
-                },error:function(){ 
-                    console.log("error!!!!");
-            }
-            });
-        $.ajax();
-    });
+      $("#nm_ruang").autocomplete({
+            source    : "{{ url('ajaxruang') }}",
+            autoFocus   : true,
+            minLength : 1,
+            select: function( event, ui ) 
+              {
+                var itemId = event.target.id;
+                $('#nm_ruang').val(ui.item.value); //harus value -> dr JqueryUi 
+                $('#ruang_id').val(ui.item.ruang_id);
+                $('#jns_beban').val(ui.item.jns_beban);
+                $('#jml_beban').val(ui.item.jml_beban);
+                $('#daya_beban').val(ui.item.daya_beban);
+                
+              }
+          });
 
+      $("select").change(function() {
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              url: "{{ url('ajaxruang') }}",
+              type: "POST",
+              data: {id: $("select :selected").val()}, //send data to controller
+                  success:function(data){
+                      console.log(data);
+                      $("#daya_ac").val(data["daya_ac"]);
+                      $("#jml_ac").val(data["jml_ac"]);
+                  },error:function(){ 
+                      console.log("error!!!!");
+              }
+              });
+          $.ajax();
+      });
+   });
     </script>
 @endsection

@@ -14,8 +14,9 @@
     <!-- Font Awesome -->
     <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{ asset('plugins/nprogress/nprogress.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('plugins/nprogress/nprogress.css') }}" rel="stylesheet">    
+    <!-- jqueryUI -->
+    <link href="{{ asset('plugins/jquery-ui/jquery-ui.css') }}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
     <link href="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- bootstrap-datetimepicker -->

@@ -62,12 +62,28 @@ class BebanLainController extends Controller
         
         $requestData = $request->all();
         
-        BebanLain::create($requestData);
+        //BebanLain::create($requestData);
+
+        //dd($requestData);
+        $BebanLain = new BebanLain;
+
+        $dayatotal = $request->daya_beban * $request->jml_beban * $request->tot_pemakaian / 1000;
+        
+        $BebanLain->ruang_id =$request->ruang_id;
+        $BebanLain->jns_beban = $request->jns_beban;
+        $BebanLain->jml_beban =$request->jml_beban;
+        $BebanLain->daya_beban =$request->daya_beban;
+        $BebanLain->tot_pemakaian = $request->tot_pemakaian;
+        $BebanLain->wktu_pengukuran = $request->wktu_pengukuran;
+        $BebanLain->tot_dayalain = $dayatotal;
+        
+        $BebanLain->save();
 
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Menyimpan Data Beban Lain" 
         ]);
+
         return redirect('manage/beban-lain');
     }
 
@@ -113,6 +129,21 @@ class BebanLainController extends Controller
         $requestData = $request->all();
         
         $bebanlain = BebanLain::findOrFail($id);
+
+        // $BebanLain = new BebanLain;
+
+        // $dayatotal = $request->daya_beban * $request->jml_beban * $request->tot_pemakaian / 1000;
+        
+        // $BebanLain->ruang_id =$request->ruang_id;
+        // $BebanLain->jns_beban = $request->jns_beban;
+        // $BebanLain->jml_beban =$request->jml_beban;
+        // $BebanLain->daya_beban =$request->daya_beban;
+        // $BebanLain->tot_pemakaian = $request->tot_pemakaian;
+        // $BebanLain->wktu_pengukuran = $request->wktu_pengukuran;
+        // $BebanLain->tot_dayalain = $dayatotal;
+        
+        // $BebanLain->save();
+        
         $bebanlain->update($requestData);
 
         Session::flash("flash_notification", [

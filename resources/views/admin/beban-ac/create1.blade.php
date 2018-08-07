@@ -58,7 +58,7 @@
                             <span class="step_no">1</span>
                             <span class="step_descr">
                                 Step 1<br />
-                                <small>Step 1 description</small>
+                                <small></small>
                             </span>
                           </a>
                         </li>
@@ -67,17 +67,21 @@
                             <span class="step_no">2</span>
                             <span class="step_descr">
                                 Step 2<br />
-                                <small>Step 2 description</small>
+                                <small></small>
                             </span>
                           </a>
                         </li>
                        
                       </ul>
+                      <br>
                       <div id="step-1">
               <div class="form-group {{ $errors->has('nm_ruang') ? 'has-error' : ''}}">
                   <label for="ruang_id" class="col-md-4 control-label">Nama Ruang</label>
                   <div class="col-md-6">
-                      {!! Form::select('ruang_id', $nm_ruang,null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+                      
+                      {!! Form::hidden('ruang_id', null, array('id' => 'ruang_id')) !!}
+                      {!! Form::text('nm_ruang', null, array('class' => 'form-control form-filter input-sm ', 'id' => 'nm_ruang')) !!}
+
                       {!! $errors->first('ruang_id', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -86,16 +90,17 @@
               <div class="form-group {{ $errors->has('jml_ac') ? 'has-error' : ''}}">
                   <label for="jml_ac" class="col-md-4 control-label">Jumlah AC</label>
                   <div class="col-md-6">
-                      <input class="form-control" id="jml_ac" name="jml_ac" value="" type="text">
-                      {{-- {!! Form::text('jml_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
+                      {!! Form::text('jml_ac', null, array('class' => 'form-control form-filter input-sm', 'id' => 'jml_ac')) !!}
+                      
                       {!! $errors->first('jml_ac', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
               <div class="form-group {{ $errors->has('daya_ac') ? 'has-error' : ''}}">
                   <label for="daya_ac" class="col-md-4 control-label">Daya AC</label>
                   <div class="col-md-6">
-                      <input class="form-control" id="daya_ac" name="daya_ac" value="" type="text">
-                      {{-- {!! Form::text('daya_ac', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
+
+                      {!! Form::text('daya_ac', null, array('class' => 'form-control form-filter input-sm', 'id' => 'daya_ac')) !!}
+                      
                       {!! $errors->first('daya_ac', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -119,7 +124,6 @@
                         </span>
                     </div>
                       
-                     {{--  {!! Form::input('datetime-local', 'wktu_pengukuran', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!} --}}
                       {!! $errors->first('wktu_pengukuran', '<p class="help-block">:message</p>') !!}
                   </div>
               </div>
@@ -146,32 +150,50 @@
 
     <!-- jQuery Smart Wizard -->
     <script src="{{ asset('plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
+     <!-- jQuery UI-->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.js') }}"></script>
     
     <script type="text/javascript">
         
-    $(function () {
+  $(document).ready(function() //model function jquery
+  {
         $('#datetimepicker1').datetimepicker({
             format: 'YYYY-MM-DD HH:mm'
         });
-    });
-
-    $("select").change(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{ url('ajaxruang') }}",
-            type: "POST",
-            data: {id: $("select :selected").val()}, //send data to controller
-                success:function(data){
-                    console.log(data);
-                    $("#daya_ac").val(data["daya_ac"]);
-                    $("#jml_ac").val(data["jml_ac"]);
-                },error:function(){ 
-                    console.log("error!!!!");
+        
+        $("#nm_ruang").autocomplete({
+          source    : "{{ url('ajaxruang') }}",
+          autoFocus   : true,
+          minLength : 1,
+          select: function( event, ui ) 
+            {
+              var itemId = event.target.id;
+              $('#nm_ruang').val(ui.item.value); //harus value -> dr JqueryUi 
+              $('#ruang_id').val(ui.item.ruang_id);
+              $('#jml_ac').val(ui.item.jml_ac);
+              $('#daya_ac').val(ui.item.daya_ac);
+              
             }
-            });
-        $.ajax();
+        });
+
+        $("select").change(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ url('ajaxruang') }}",
+                type: "POST",
+                data: {id: $("select :selected").val()}, //send data to controller
+                    success:function(data){
+                        console.log(data);
+                        $("#daya_ac").val(data["daya_ac"]);
+                        $("#jml_ac").val(data["jml_ac"]);
+                    },error:function(){ 
+                        console.log("error!!!!");
+                }
+                });
+            $.ajax();
+        });
     });
 
     </script>

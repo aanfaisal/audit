@@ -61,7 +61,25 @@ class BebanPeneranganController extends Controller
 
 		$requestData = $request->all();
 
-		BebanPenerangan::create($requestData);
+		//BebanPenerangan::create($requestData);
+		//dd($requestData);
+		//
+		$dayatotal = $request->daya_lamp * $request->jml_lamp * $request->tot_pemakaian / 1000;
+		
+		$BebanPen = new BebanPenerangan;
+
+		
+		$BebanPen->ruang_id =$request->ruang_id;
+        $BebanPen->jns_lamp = $request->jns_lamp;
+        $BebanPen->jml_lamp = $request->jml_lamp;
+
+        $BebanPen->daya_lamp =$request->daya_lamp;
+        $BebanPen->tot_pemakaian = $request->tot_pemakaian;
+        $BebanPen->wktu_pengukuran = $request->wktu_pengukuran;
+        $BebanPen->tot_dayapen = $dayatotal;
+        
+        $BebanPen->save();
+
 
 		Session::flash("flash_notification", [
 			"level" => "success",
