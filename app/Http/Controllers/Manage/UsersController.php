@@ -124,7 +124,7 @@ class UsersController extends Controller {
 
 		Session::flash("flash_notification", [
 			"level" => "success",
-			"message" => "Berhasil mengupdate Use ",
+			"message" => "Berhasil mengupdate User ",
 		]);
 
 		return redirect('use');
@@ -142,7 +142,7 @@ class UsersController extends Controller {
 
 		Session::flash("flash_notification", [
 			"level" => "success",
-			"message" => "Berhasil menghapus Use ",
+			"message" => "Berhasil menghapus User ",
 		]);
 
 		return redirect('use');

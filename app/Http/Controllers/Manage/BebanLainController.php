@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 
 use DB;
 use Session;
-use App\Ruang;
 use App\BebanLain;
-use Illuminate\Http\Request;
+use App\HitungIke;
+use App\Profil;
+use App\Ruang;
 
 class BebanLainController extends Controller
 {
@@ -81,17 +84,18 @@ class BebanLainController extends Controller
 
         $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
 
-        
+        $bebanlain= BebanLain::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayalain');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $bebanlain / $luas;
+
         if(!$cek)
         {
-                $hasil = "12.5";
+                $hasil = $hsil;
                 $hitung = new HitungIke;
                 $hitung->wktu_pengukuran = $request->wktu_pengukuran;
                 $hitung->hsil_perhitungan = $hasil;
                 
                 $hitung->save();
-            
-
         }
         
         Session::flash("flash_notification", [
@@ -144,22 +148,23 @@ class BebanLainController extends Controller
         $requestData = $request->all();
         
         $bebanlain = BebanLain::findOrFail($id);
-
-        // $BebanLain = new BebanLain;
-
-        // $dayatotal = $request->daya_beban * $request->jml_beban * $request->tot_pemakaian / 1000;
-        
-        // $BebanLain->ruang_id =$request->ruang_id;
-        // $BebanLain->jns_beban = $request->jns_beban;
-        // $BebanLain->jml_beban =$request->jml_beban;
-        // $BebanLain->daya_beban =$request->daya_beban;
-        // $BebanLain->tot_pemakaian = $request->tot_pemakaian;
-        // $BebanLain->wktu_pengukuran = $request->wktu_pengukuran;
-        // $BebanLain->tot_dayalain = $dayatotal;
-        
-        // $BebanLain->save();
         
         $bebanlain->update($requestData);
+
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
+
+        $bebanlain= BebanLain::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayalain');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $bebanlain / $luas;
+
+        if(!$cek)
+        {
+                $hasil = $hsil;
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                $hitung->save();
+        }
 
         Session::flash("flash_notification", [
             "level" => "success",

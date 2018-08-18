@@ -86,7 +86,14 @@
               </div>
                       </div>
                       <div id="step-2">
-              
+              <div class="form-group {{ $errors->has('jns_beban') ? 'has-error' : ''}}">
+                  {!! Form::label('jns_beban', 'Jumlah Beban', ['class' => 'col-md-4 control-label']) !!}
+                  <div class="col-md-6">
+                      
+                      {!! Form::text('jns_beban', null, array('class' => 'form-control form-filter input-sm', 'id' => 'jns_beban')) !!}
+                      {!! $errors->first('jns_beban', '<p class="help-block">:message</p>') !!}
+                  </div>
+              </div>
               <div class="form-group {{ $errors->has('jml_beban') ? 'has-error' : ''}}">
                   {!! Form::label('jml_beban', 'Jumlah Beban', ['class' => 'col-md-4 control-label']) !!}
                   <div class="col-md-6">

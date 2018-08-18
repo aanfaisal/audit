@@ -49,7 +49,7 @@
         <!-- /sidebar menu -->
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
-            <a data-toggle="tooltip" data-placement="top" title="Settings" href="{{ url('settings') }}">
+            <a data-toggle="tooltip" data-placement="top" title="Settings" href="{{ url('manage/user') }}">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="FullScreen" onclick="toggleFullScreen()">

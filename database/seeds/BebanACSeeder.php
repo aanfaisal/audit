@@ -25,7 +25,7 @@ class BebanACSeeder extends Seeder
                 'daya_ac' => $faker->randomElement(['735', '1470', '368']),
                 'tot_pemakaian' => $faker->randomElement(['5', '8', '10', '15', '12', '7']),
                 //'wktu_pengukuran' => $faker->dateTimeInInterval($startDate = '-30 days', $interval = '+ 1 days', $timezone = 'Asia/Jakarta')
-                'wktu_pengukuran' => $faker->dateTimeBetween('-30 days','+2 days'), //Asia / Jakarta
+                'wktu_pengukuran' => $faker->dateTimeBetween('-30 days','-2 days'), //Asia / Jakarta
             ]);
         }
     }

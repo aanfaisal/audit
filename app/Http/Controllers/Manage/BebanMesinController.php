@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 use DB;
 use Session;
-use App\Ruang;
 use App\BebanMesin;
+use App\HitungIke;
+use App\Profil;
+use App\Ruang;
 use Illuminate\Http\Request;
 
 class BebanMesinController extends Controller
@@ -62,7 +65,7 @@ class BebanMesinController extends Controller
         $requestData = $request->all();
         
         //BebanMesin::create($requestData);
-        dd($requestData);
+        //dd($requestData);
 
         $BebanMesin = new BebanMesin;
 
@@ -79,10 +82,13 @@ class BebanMesinController extends Controller
 
         $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
 
-        
+        $bebanmsin= BebanMesin::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayamesin');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $bebanmsin / $luas;
+
         if(!$cek)
         {
-                $hasil = "12.5";
+                $hasil = $hsil;
                 $hitung = new HitungIke;
                 $hitung->wktu_pengukuran = $request->wktu_pengukuran;
                 $hitung->hsil_perhitungan = $hasil;
@@ -141,7 +147,20 @@ class BebanMesinController extends Controller
         
         $bebanmesin = BebanMesin::findOrFail($id);
         $bebanmesin->update($requestData);
+        
+        $bebanmsin= BebanMesin::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayamesin');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $bebanmsin / $luas;
 
+        if(!$cek)
+        {
+                $hasil = $hsil;
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+        }
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Mengupdate Data Beban Mesin" 

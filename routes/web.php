@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::post('ajaxruang', 'AjaxController@ajaxruang');
-
 Route::get('ajaxruang', 'AjaxController@auto_item');
 
 Route::group(['middleware' => ['web']], function () {

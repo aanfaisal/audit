@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 
 use DB;
 use Session;
-use App\Ruang;
 use App\BebanAc;
 use App\HitungIke;
+use App\Profil;
+use App\Ruang;
 
 use Illuminate\Http\Request;
 
@@ -88,21 +90,20 @@ class BebanAcController extends Controller
 
         $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
 
-        
+        $acbeban= BebanAc::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayaac');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $acbeban / $luas;
+
         if(!$cek)
         {
-                $hasil = "12.5";
+                $hasil = $hsil;
                 $hitung = new HitungIke;
                 $hitung->wktu_pengukuran = $request->wktu_pengukuran;
                 $hitung->hsil_perhitungan = $hasil;
                 
                 $hitung->save();
-            
-
         }
 
-
-//        BebanAc::create($requestData);
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Menyimpan Data AC" 
@@ -154,7 +155,24 @@ class BebanAcController extends Controller
         
         $bebanac = BebanAc::findOrFail($id);
         $bebanac->update($requestData);
+        
+        $cek= HitungIke::where('wktu_pengukuran', '=', Input::get('wktu_pengukuran'))->exists();
 
+        $acbeban= BebanAc::where('wktu_pengukuran', '=' , Input::get('wktu_pengukuran'))->sum('tot_dayaac');
+        $luas= DB::table('profils')->where('profil_id', 1)->pluck('luas_gedung');
+        $hsil = $acbeban / $luas;
+
+        if(!$cek)
+        {
+                $hasil = $hsil;
+                $hitung = new HitungIke;
+                $hitung->wktu_pengukuran = $request->wktu_pengukuran;
+                $hitung->hsil_perhitungan = $hasil;
+                
+                $hitung->save();
+
+        }
+        
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil Mengupdate Data AC" 

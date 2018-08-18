@@ -41,7 +41,7 @@ class HitungIkeController extends Controller
      */
     public function create()
     {
-        return view('admin.hitung-ike.create');
+        
     }
 
     /**
@@ -54,11 +54,6 @@ class HitungIkeController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
-        
-        HitungIke::create($requestData);
-
-        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke added!');
     }
 
     /**
@@ -104,8 +99,13 @@ class HitungIkeController extends Controller
         
         $hitungike = HitungIke::findOrFail($id);
         $hitungike->update($requestData);
+        
+        Session::flash("flash_notification", [
+			"level" => "success",
+			"message" => "Berhasil Mengupdate Data IKE",
+		]);
 
-        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke updated!');
+        return redirect('manage/hitung-ike');
     }
 
     /**
@@ -119,6 +119,6 @@ class HitungIkeController extends Controller
     {
         HitungIke::destroy($id);
 
-        return redirect('manage/hitung-ike')->with('flash_message', 'HitungIke deleted!');
+        return redirect('manage/hitung-ike')->with('flash_message', 'Hitung Ike deleted!');
     }
 }
