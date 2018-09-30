@@ -1,2 +1,7 @@
 {
+    "editor.fontFamily": "Fira Code, monospace",
+    // Enables/Disables font ligatures.
+    "editor.fontLigatures": true,
+    // Controls the font size in pixels.
+    "editor.rulers": [80,120]
 }
