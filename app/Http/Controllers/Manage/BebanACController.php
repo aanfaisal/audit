@@ -71,7 +71,7 @@ class BebanAcController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
+        //$requestData = $request->all();
         $waktu = $request->wktu_pengukuran;
 
         $BebanAc = new BebanAc;
