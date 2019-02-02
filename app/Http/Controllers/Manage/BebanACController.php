@@ -14,8 +14,6 @@ use App\HitungIke;
 use App\Profil;
 use App\Ruang;
 
-use Illuminate\Http\Request;
-
 class BebanAcController extends Controller
 {
     /**
